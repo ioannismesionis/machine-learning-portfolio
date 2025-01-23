@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 
 export function WordRotate({
   words,
-  duration = 2500,
+  duration = 3500,
 
   motionProps = {
     initial: { opacity: 0, y: -50 },
@@ -29,7 +29,7 @@ export function WordRotate({
   }, [words, duration]);
 
   return (
-    (<div className="overflow-hidden py-2">
+    (<div className="overflow-hidden py-0">
       <AnimatePresence mode="wait">
         <motion.h1 key={words[index]} className={cn(className)} {...motionProps}>
           {words[index]}

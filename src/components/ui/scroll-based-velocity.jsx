@@ -11,6 +11,7 @@ import {
 import React, { useEffect, useRef, useState } from "react";
 
 import { cn } from "@/lib/utils";
+import { DotPattern } from "./dot-pattern";
 
 export const wrap = (min, max, v) => {
   const rangeSize = max - min;
@@ -93,8 +94,9 @@ export function VelocityScroll({
 }) {
   return (
     <div
+      
       className={cn(
-        "relative w-full text-sm font-bold tracking-[-0.02em] md:text-7xl md:leading-[5rem]",
+        "relative w-full text-sm font-bold tracking-[-0.02em] md:text-5xl md:leading-[5rem]",
         className
       )}
       {...props}
@@ -107,6 +109,10 @@ export function VelocityScroll({
           {children}
         </ParallaxText>
       ))}
+
+      <DotPattern className={
+        "[mask-image:radial-gradient(140px_circle_at_center,white,transparent)]"
+      }/>
     </div>
   );
 }

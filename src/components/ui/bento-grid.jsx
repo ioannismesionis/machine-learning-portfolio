@@ -4,6 +4,16 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { HyperText } from "./hyper-text";
 
+const GIFS = [
+  "https://media.tenor.com/fTaJKvvsAboAAAAj/cinnamoroll-sanrio.gif",
+  "https://media.tenor.com/SwQT4BBJS0oAAAAj/peach-and-goma-peach-goma.gif",
+  "https://giffiles.alphacoders.com/145/14566.gif",
+  "https://img1.picmix.com/output/stamp/thumb/2/3/5/0/550532_4cc34.gif",
+  // Add more GIF URLs here
+];
+
+const getRandomGif = () => GIFS[Math.floor(Math.random() * GIFS.length)];
+
 const BentoGrid = ({ children, className, ...props }) => {
   return (
     <div
@@ -25,51 +35,108 @@ const BentoCard = ({
   name,
   className,
   background,
-  Icon,
   description,
-  href,
-  cta,
+  projectTitle,
+  projectDescription,
+  onClick,
+  children,
+  isTransparent = false,
+  opacity = 100,
+  borderBeamProps = {
+    show: true,
+    colorFrom: "#09122C",
+    colorTo: "#578E7E",
+    duration: 25,
+    size: 70,
+    borderWidth: 0.2,
+  },
   ...props
-}) => (
-  <div
-    key={name}
-    className={cn(
-      "group relative flex flex-col justify-between overflow-hidden rounded-xl",
-      // light styles
-      "bg-white [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)]",
-      // dark styles
-      "transform-gpu dark:bg-black dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]",
-      className
-    )}
-    {...props}
-  >
-    <BorderBeam
-      className="z-10"
-      colorFrom="#09122C"
-      colorTo="#98D8EF"
-      duration={25}
-      size={70}
-      borderWidth={0.2}
-    />
-    <div>{background}</div>
+}) => {
 
-    {/* Icon at top */}
-    <div className="pointer-events-none z-20 flex transform-gpu p-6">
-      <Icon className="h-12 w-12 origin-left transform-gpu text-neutral-700 transition-all duration-300 ease-in-out group-hover:scale-75" />
+  return (
+    <div
+      key={name}
+      onClick={onClick}
+      className={cn(
+        "group relative flex flex-col justify-between overflow-hidden rounded-xl",
+        {
+          "bg-transparent": isTransparent,
+          [`bg-opacity-${opacity}`]: !isTransparent,
+          "bg-white dark:bg-black": !isTransparent,
+          "[box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)]":
+            !isTransparent,
+          "transform-gpu dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]":
+            !isTransparent,
+        },
+        "",
+        onClick && "cursor-pointer",
+        className
+      )}
+      {...props}
+    >
+      {borderBeamProps.show && (
+        <BorderBeam
+          className="z-10"
+          colorFrom={borderBeamProps.colorFrom}
+          colorTo={borderBeamProps.colorTo}
+          duration={borderBeamProps.duration}
+          size={borderBeamProps.size}
+          borderWidth={borderBeamProps.borderWidth}
+        />
+      )}
+      <div className="relative h-full ">
+        {name === "Recent Projects" && (
+          <div
+            className="absolute w-16 h-16 z-30"
+            style={{
+              top: "1rem",
+              right: "1rem",
+            }}
+          >
+            <img
+              src={getRandomGif()}
+              alt="Animated gif"
+              className="w-full h-full object-contain"
+            />
+          </div>
+        )}
+
+        {background && <div className="absolute inset-0 z-0">{background}</div>}
+
+        {children}
+
+        {(name || description || projectTitle || projectDescription) && (
+          <div className="pointer-events-none z-20 absolute bottom-0 left-0 p-6 bg-gradient-to-t from-black/110 to-transparent">
+            {name && (
+              <p className="text-2xl text-white">
+                <HyperText
+                  className={"text-base font-jetbriansMono"}
+                  duration={30}
+                >
+                  {name}
+                </HyperText>
+              </p>
+            )}
+            {projectTitle && (
+              <p className="text-lg font-semibold text-white/90 mt-2 font-jetbriansMono">
+                {projectTitle}
+              </p>
+            )}
+            {projectDescription && (
+              <p className="text-sm text-white/70 mt-1 font-sourceCodePro">
+                {projectDescription}
+              </p>
+            )}
+            {description && (
+              <p className="text-sm text-white/80 mt-0">{description}</p>
+            )}
+          </div>
+        )}
+      </div>
+
+      <div className="pointer-events-none absolute inset-0 transform-gpu transition-all duration-300 group-hover:bg-black/[.03] group-hover:dark:bg-neutral-800/10" />
     </div>
-
-    {/* Name and description at bottom */}
-    <div className="pointer-events-none z-20 absolute bottom-0 left-0 p-6 bg-gradient-to-t from-black/110 to-transparent">
-      <p className="text-xl  font-semibold text-white font-mono">
-        <HyperText className={"text-base"} duration={30}>
-          {name}
-        </HyperText>
-      </p>
-      <p className="text-sm text-white/80 mt-0">{description}</p>
-    </div>
-
-    <div className="pointer-events-none absolute inset-0 transform-gpu transition-all duration-300 group-hover:bg-black/[.03] group-hover:dark:bg-neutral-800/10" />
-  </div>
-);
+  );
+};
 
 export { BentoCard, BentoGrid };
