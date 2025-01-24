@@ -43,13 +43,13 @@ function hexToRgb(hex) {
 export const Particles = ({
   className = "",
   quantity = 100,
-  staticity = 50,
-  ease = 50,
+  staticity = 10,
+  ease = 30,
   size = 0.4,
   refresh = false,
-  color = "#ffffff",
-  vx = 0,
-  vy = 0,
+  color = "#000000",
+  vx = 0.1,
+  vy = 0.1,
   ...props
 }) => {
   const canvasRef = useRef(null);

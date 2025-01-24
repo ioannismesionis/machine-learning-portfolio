@@ -29,12 +29,16 @@ export function WordRotate({
   }, [words, duration]);
 
   return (
-    (<div className="overflow-hidden py-0">
+    <div className="overflow-hidden py-0 opacity-70">
       <AnimatePresence mode="wait">
-        <motion.h1 key={words[index]} className={cn(className)} {...motionProps}>
+        <motion.h1
+          key={words[index]}
+          className={cn(className)}
+          {...motionProps}
+        >
           {words[index]}
         </motion.h1>
       </AnimatePresence>
-    </div>)
+    </div>
   );
 }

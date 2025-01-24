@@ -1,14 +1,10 @@
-import { ArrowRightIcon } from "@radix-ui/react-icons";
 import { BorderBeam } from "@/components/ui/border-beam.jsx";
-import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { HyperText } from "./hyper-text";
 
 const GIFS = [
   "https://media.tenor.com/fTaJKvvsAboAAAAj/cinnamoroll-sanrio.gif",
-  "https://media.tenor.com/SwQT4BBJS0oAAAAj/peach-and-goma-peach-goma.gif",
   "https://giffiles.alphacoders.com/145/14566.gif",
-  "https://img1.picmix.com/output/stamp/thumb/2/3/5/0/550532_4cc34.gif",
   // Add more GIF URLs here
 ];
 
@@ -52,7 +48,6 @@ const BentoCard = ({
   },
   ...props
 }) => {
-
   return (
     <div
       key={name}
@@ -87,7 +82,7 @@ const BentoCard = ({
       <div className="relative h-full ">
         {name === "Recent Projects" && (
           <div
-            className="absolute w-16 h-16 z-30"
+            className="absolute  z-30 sm:w-16 sm:h-16 w-20 h-20"
             style={{
               top: "1rem",
               right: "1rem",
@@ -108,28 +103,35 @@ const BentoCard = ({
         {(name || description || projectTitle || projectDescription) && (
           <div className="pointer-events-none z-20 absolute bottom-0 left-0 p-6 bg-gradient-to-t from-black/110 to-transparent">
             {name && (
-              <p className="text-2xl text-white">
-                <HyperText
-                  className={"text-base font-jetbriansMono"}
-                  duration={30}
-                >
-                  {name}
-                </HyperText>
+              <p className="text-2xl">
+                {name == "Shoan An Nafi" ? (
+                  <HyperText
+                    className={"text-base font-jetbriansMono font-white"}
+                    duration={30}
+                  >
+                    {name}
+                  </HyperText>
+                ) : (
+                  <HyperText
+                    className={"text-base font-jetbriansMono"}
+                    duration={30}
+                  >
+                    {name}
+                  </HyperText>
+                )}
               </p>
             )}
             {projectTitle && (
-              <p className="text-lg font-semibold text-white/90 mt-2 font-jetbriansMono">
+              <p className="text-lg font-semibold  mt-2 font-jetbriansMono">
                 {projectTitle}
               </p>
             )}
             {projectDescription && (
-              <p className="text-sm text-white/70 mt-1 font-sourceCodePro">
+              <p className="text-sm  mt-1 font-sourceCodePro pb-3">
                 {projectDescription}
               </p>
             )}
-            {description && (
-              <p className="text-sm text-white/80 mt-0">{description}</p>
-            )}
+            {description && <p className="text-sm  mt-0">{description}</p>}
           </div>
         )}
       </div>

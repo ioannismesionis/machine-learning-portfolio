@@ -9,7 +9,12 @@ import { WordRotate } from "../ui/word-rotate";
 import { IconCloud } from "../ui/icon-cloud";
 import { useToast } from "@/hooks/use-toast";
 import { Spotify } from "react-spotify-embed";
-
+import { CgDarkMode } from "react-icons/cg";
+import { useEffect, useState } from "react";
+import { SiGmail } from "react-icons/si";
+import { FaDiscord } from "react-icons/fa6";
+import { AiFillGithub } from "react-icons/ai";
+import { BsInstagram } from "react-icons/bs";
 const slugs = [
   "javascript",
   "dart",
@@ -47,20 +52,29 @@ const slugs = [
 ];
 
 const homepage = () => {
+  useEffect(() => {
+    document.documentElement.classList.add("dark");
+    return () => {
+      document.documentElement.classList.remove("dark");
+    };
+  }, []);
+
   const { toast } = useToast();
+  const [backgrounddotcolor, setBackground] = useState("#ffffff");
+
   const images = slugs.map(
     (slug) => `https://cdn.simpleicons.org/${slug}/${slug}`
   );
 
   return (
     <div>
-      <div className="absolute inset-2 -z-10 overflow-hidden">
-        <Particles quantity="400" staticity="20" />
+      <div className="fixed inset-0 -z-10 min-h-screen w-full">
+        <Particles quantity="400" staticity="30" color={backgrounddotcolor} />
       </div>
       <div className="min-h-screen flex items-center justify-center">
         <BentoGrid>
           <BentoCard
-            name="Shoan An Nafi"
+            name={"Shoan An Nafi"}
             description={
               <WordRotate
                 className={"text-white font-sourceCodePro font-light "}
@@ -81,6 +95,24 @@ const homepage = () => {
                   alt=""
                   className="absolute inset-0 object-cover w-full h-full"
                 />
+                <div
+                  className="absolute top-4 right-4"
+                  onClick={() => {
+                    document.documentElement.classList.toggle("dark");
+                    setBackground(
+                      document.documentElement.classList.contains("dark")
+                        ? "#ffffff"
+                        : "#000000"
+                    );
+                    toast({
+                      title: "Theme changed",
+                      duration: 2000,
+                      description: "Theme has been changed",
+                    });
+                  }}
+                >
+                  <CgDarkMode className="w-6 h-6" />
+                </div>
               </>
             }
             borderBeamProps={{
@@ -140,11 +172,7 @@ technologies.`}</TypingAnimation>
                     window.open("https://github.com/Nafisarkar", "_blank")
                   }
                 >
-                  <img
-                    src="/github_logo.png"
-                    className="w-12 h-12 rounded-lg hover:opacity-80 transition-opacity"
-                    alt="github logo"
-                  />
+                  <AiFillGithub className="w-12 h-12 rounded-lg hover:opacity-80 transition-opacity" />
                 </div>
                 <div
                   className="cursor-pointer"
@@ -152,11 +180,7 @@ technologies.`}</TypingAnimation>
                     (window.location.href = "mailto:sarkarnafe@gmail.com")
                   }
                 >
-                  <img
-                    src="https://img.icons8.com/ios_filled/512/FFFFFF/gmail-new.png"
-                    className="w-12 h-12 rounded-lg hover:opacity-80 transition-opacity"
-                    alt="mail logo"
-                  />
+                  <SiGmail className="w-12 h-12 rounded-lg hover:opacity-80 transition-opacity" />
                 </div>
                 <div
                   className="cursor-pointer"
@@ -164,11 +188,7 @@ technologies.`}</TypingAnimation>
                     window.open("https://discord.com/users/_sakuno", "_blank")
                   }
                 >
-                  <img
-                    src="https://img.icons8.com/ios11/512/FFFFFF/discord-logo.png"
-                    className="w-12 h-12 rounded-lg hover:opacity-80 transition-opacity"
-                    alt="discord logo"
-                  />
+                  <FaDiscord className="w-12 h-12 rounded-lg hover:opacity-80 transition-opacity" />
                 </div>
                 <div
                   className="cursor-pointer"
@@ -179,11 +199,7 @@ technologies.`}</TypingAnimation>
                     )
                   }
                 >
-                  <img
-                    src="https://img.icons8.com/m_outlined/512/FFFFFF/instagram-new.png"
-                    className="w-12 h-12 rounded-lg hover:opacity-80 transition-opacity"
-                    alt="instagram logo"
-                  />
+                  <BsInstagram className="w-12 h-12 rounded-lg hover:opacity-80 transition-opacity" />
                 </div>
                 <div
                   className="cursor-pointer col-span-2 text-center"
@@ -297,12 +313,10 @@ technologies.`}</TypingAnimation>
             className={"md:block md:col-span-2 md:row-span-1"}
           />
           <BentoCard
-            name="{} TECH STACK"
+            name="{ TECH } STACK"
             description={
               <WordRotate
-                className={
-                  "text-white font-sourceCodePro font-bold text-opacity-50"
-                }
+                className={" font-sourceCodePro font-bold "}
                 duration={3000}
                 words={[
                   "javascript",
@@ -394,7 +408,7 @@ technologies.`}</TypingAnimation>
             background={
               <div>
                 <p
-                  className="text-gray-400 text-start font-mono text-xs  opacity-90 hover:underline"
+                  className=" text-start font-mono text-xs  opacity-60 hover:underline"
                   onClick={() =>
                     window.open("https://discord.com/users/_sakuno", "_blank")
                   }
@@ -402,7 +416,7 @@ technologies.`}</TypingAnimation>
                   <span className="inline-block w-2 h-2 rounded-full bg-green-500 mr-2 "></span>
                   Available for work
                 </p>
-                <p className="text-gray-400 text-start font-mono text-xs pt-0 pb-2 opacity-90 ">
+                <p className=" text-start font-mono text-xs pt-0 pb-2 opacity-60 ">
                   <span className=""></span>
                   {new Intl.DateTimeFormat("en-US", {
                     weekday: "short",
