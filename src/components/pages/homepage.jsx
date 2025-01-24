@@ -8,6 +8,7 @@ import { TypingAnimation } from "../ui/typing-animation";
 import { WordRotate } from "../ui/word-rotate";
 import { IconCloud } from "../ui/icon-cloud";
 import { useToast } from "@/hooks/use-toast";
+import { Spotify } from "react-spotify-embed";
 
 const slugs = [
   "javascript",
@@ -280,7 +281,7 @@ technologies.`}</TypingAnimation>
             className={"md:block md:col-span-2 md:row-span-1"}
           />
           <BentoCard
-            name=""
+            name="{} TECH STACK"
             description={
               <WordRotate
                 className={
@@ -358,7 +359,7 @@ technologies.`}</TypingAnimation>
                   <SparklesText
                     sparklesCount={3}
                     text="Express"
-                    className="font-jetbriansMono text-sm md:w-full lg:pl-0 lg:w-auto align-start"
+                    className="font-jetbriansMono text-xs md:w-full lg:pl-0 lg:w-auto align-start"
                   />
                 </div>
               </div>
@@ -374,6 +375,36 @@ technologies.`}</TypingAnimation>
               show: false,
             }}
             className={"md:block md:col-span-1 md:row-span-1"}
+            background={
+              <div>
+                <p
+                  className="text-gray-400 text-start font-mono text-xs  opacity-90 hover:underline"
+                  onClick={() =>
+                    window.open("https://discord.com/users/_sakuno", "_blank")
+                  }
+                >
+                  <span className="inline-block w-2 h-2 rounded-full bg-green-500 mr-2 "></span>
+                  Available for work
+                </p>
+                <p className="text-gray-400 text-start font-mono text-xs pt-0 pb-2 opacity-90 ">
+                  <span className=""></span>
+                  {new Intl.DateTimeFormat("en-US", {
+                    weekday: "short",
+                    year: "2-digit",
+                    month: "short",
+                    day: "2-digit",
+                    hour: "2-digit",
+                    minute: "2-digit",
+                  }).format(new Date())}
+                </p>
+                <Spotify
+                  link="https://open.spotify.com/track/42T2QQv3xgBlpQxaSP7lnK?si=0485ec49ffcd4bcf"
+                  width={"100%"}
+                  height={"100%"}
+                  frameBorder={0}
+                />
+              </div>
+            }
           />
         </BentoGrid>
       </div>
