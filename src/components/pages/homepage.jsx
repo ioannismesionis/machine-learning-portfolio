@@ -187,7 +187,23 @@ technologies.`}</TypingAnimation>
                 </div>
                 <div
                   className="cursor-pointer col-span-2 text-center"
-                  onClick={() => window.open("", "_blank")}
+                  onClick={() => {
+                    toast({
+                      title: "CV Downloaded",
+                      description: "Check your downloads folder.",
+                      status: "success",
+                      duration: 5000,
+                      isClosable: true,
+                    });
+
+                    const link = document.createElement("a");
+                    link.href =
+                      "https://drive.google.com/uc?export=download&id=14fNIOzVJM3NuK12fKCHRpYD-h1igLp2A";
+                    link.setAttribute("download", "");
+                    document.body.appendChild(link);
+                    link.click();
+                    link.remove();
+                  }}
                 >
                   <p className="font-jetbriansMono text-4xl font-extrabold pt-1 hover:underline">
                     LINKS.
@@ -398,7 +414,7 @@ technologies.`}</TypingAnimation>
                   }).format(new Date())}
                 </p>
                 <Spotify
-                  link="https://open.spotify.com/track/42T2QQv3xgBlpQxaSP7lnK?si=0485ec49ffcd4bcf"
+                  link="https://open.spotify.com/track/47qNROGtcjIyHOaVbeNXCB?si=8c39f594ab2f47d4"
                   width={"100%"}
                   height={"100%"}
                   frameBorder={0}
