@@ -15,6 +15,7 @@ import { SiGmail } from "react-icons/si";
 import { FaDiscord } from "react-icons/fa6";
 import { AiFillGithub } from "react-icons/ai";
 import { BsInstagram } from "react-icons/bs";
+import { DotPattern } from "../ui/dot-pattern";
 const slugs = [
   "javascript",
   "dart",
@@ -124,9 +125,10 @@ const homepage = () => {
               show: false,
             }}
             className={
-              "md:block md:col-span-1 md:row-span-2 font-mono font-extrabold"
+              "md:block md:col-span-1 md:row-span-2 font-mono font-extrabold cursor-pointer transition-transform duration-500 hover:scale-105"
             }
           />
+
           <BentoCard
             name=""
             description=""
@@ -134,6 +136,7 @@ const homepage = () => {
             href="#"
             background={
               <div className="absolute inset-0 flex items-center justify-center bg-black/90 p-4">
+              
                 <pre className="text-xs text-white/80 overflow-hidden">
                   <code className="font-sourceCodePro text-green-600">
                     <TypingAnimation
@@ -149,7 +152,9 @@ technologies.`}</TypingAnimation>
                 </pre>
               </div>
             }
-            className={"md:block md:col-span-1 md:row-span-1"}
+            className={
+              "md:block md:col-span-1 md:row-span-1 cursor-pointer transition-transform duration-500 hover:scale-105"
+            }
             borderBeamProps={{
               show: true,
               size: 100,
@@ -177,7 +182,7 @@ technologies.`}</TypingAnimation>
                     window.open("https://github.com/Nafisarkar", "_blank")
                   }
                 >
-                  <AiFillGithub className="w-12 h-12 rounded-lg hover:opacity-80 transition-opacity" />
+                  <AiFillGithub className="w-12 h-12 rounded-lg hover:opacity-80 cursor-pointer transition-transform duration-500 hover:scale-105" />
                 </div>
                 <div
                   className="cursor-pointer"
@@ -185,7 +190,7 @@ technologies.`}</TypingAnimation>
                     (window.location.href = "mailto:sarkarnafe@gmail.com")
                   }
                 >
-                  <SiGmail className="w-12 h-12 rounded-lg hover:opacity-80 transition-opacity" />
+                  <SiGmail className="w-12 h-12 rounded-lg hover:opacity-80 cursor-pointer transition-transform duration-500 hover:scale-105" />
                 </div>
                 <div
                   className="cursor-pointer"
@@ -196,7 +201,7 @@ technologies.`}</TypingAnimation>
                   <FaDiscord className="w-12 h-12 rounded-lg hover:opacity-80 transition-opacity" />
                 </div>
                 <div
-                  className="cursor-pointer"
+                  className="cursor-pointer transition-transform duration-500 hover:scale-105"
                   onClick={() =>
                     window.open(
                       "https://www.instagram.com/_blindfox_/",
@@ -207,7 +212,7 @@ technologies.`}</TypingAnimation>
                   <BsInstagram className="w-12 h-12 rounded-lg hover:opacity-80 transition-opacity" />
                 </div>
                 <div
-                  className="cursor-pointer col-span-2 text-center"
+                  className="cursor-pointer col-span-2 text-center transition-transform duration-500 hover:scale-105"
                   onClick={() => {
                     toast({
                       title: "CV Downloaded",
@@ -226,7 +231,7 @@ technologies.`}</TypingAnimation>
                     link.remove();
                   }}
                 >
-                  <p className="font-jetbriansMono text-4xl font-extrabold pt-1 hover:underline">
+                  <p className="font-jetbriansMono text-4xl font-extrabold pt-1 hover:underline cursor-pointer transition-transform duration-500 hover:scale-105">
                     LINKS.
                   </p>
                 </div>
@@ -265,7 +270,7 @@ technologies.`}</TypingAnimation>
             borderBeamProps={{
               show: false,
             }}
-            className="md:block md:col-span-2 md:row-span-1"
+            className="md:block md:col-span-2 md:row-span-1 cursor-pointer transition-transform duration-500 hover:scale-105"
             onClick={() => {
               const projectTitleElement = document.querySelector(
                 ".project-title-text"
@@ -315,7 +320,9 @@ technologies.`}</TypingAnimation>
                 </pre>
               </div>
             }
-            className={"md:block md:col-span-2 md:row-span-1"}
+            className={
+              "md:block md:col-span-2 md:row-span-1 cursor-pointer transition-transform duration-500 hover:scale-105"
+            }
           />
           <BentoCard
             name="{ TECH } STACK"
@@ -360,9 +367,11 @@ technologies.`}</TypingAnimation>
             borderBeamProps={{
               show: false,
             }}
-            className={"md:block md:col-span-1 md:row-span-2"}
+            className={
+              "md:block md:col-span-1 md:row-span-2 align-center justify-center"
+            }
             background={
-              <div className="relative flex size-full max-w-lg items-center justify-center overflow-hidden rounded-lg">
+              <div className="relative flex size-full max-w-lg items-center justify-center overflow-hidden rounded-lg ">
                 <IconCloud images={images} />
               </div>
             }
