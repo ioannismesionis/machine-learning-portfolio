@@ -68,8 +68,13 @@ const homepage = () => {
 
   return (
     <div>
-      <div className="fixed inset-0 -z-10 min-h-screen w-full">
-        <Particles quantity="400" staticity="30" color={backgrounddotcolor} />
+      <div className="fixed inset-0 -z-10 min-h-screen h-screen w-full overflow-hidden">
+        <Particles
+          quantity={800}
+          staticity={20}
+          color={backgrounddotcolor}
+          className="w-full h-full"
+        />
       </div>
       <div className="min-h-screen flex items-center justify-center">
         <BentoGrid>
