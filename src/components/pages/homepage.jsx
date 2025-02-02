@@ -136,7 +136,6 @@ const homepage = () => {
             href="#"
             background={
               <div className="absolute inset-0 flex items-center justify-center bg-black/90 p-4">
-              
                 <pre className="text-xs text-white/80 overflow-hidden">
                   <code className="font-sourceCodePro text-green-600">
                     <TypingAnimation
@@ -442,7 +441,7 @@ technologies.`}</TypingAnimation>
                   }).format(new Date())}
                 </p>
                 <Spotify
-                  link="https://open.spotify.com/track/47qNROGtcjIyHOaVbeNXCB?si=8c39f594ab2f47d4"
+                  link="https://open.spotify.com/track/0COqiPhxzoWICwFCS4eZcp?si=531a91df6c7f44f1"
                   width={"100%"}
                   height={"100%"}
                   frameBorder={0}
