@@ -35,7 +35,7 @@ To get started with this project, follow these steps:
 
 2. Navigate to the project directory:
    ```bash
-   cd Portpholio_MagicUI_React
+   cd Portfolio_MagicUI_React
    ```
 
 3. Install the dependencies:
