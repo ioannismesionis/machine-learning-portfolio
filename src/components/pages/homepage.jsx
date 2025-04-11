@@ -15,7 +15,7 @@ import { SiGmail } from "react-icons/si";
 import { FaDiscord } from "react-icons/fa6";
 import { AiFillGithub } from "react-icons/ai";
 import { BsInstagram } from "react-icons/bs";
-import { DotPattern } from "../ui/dot-pattern";
+
 const slugs = [
   "javascript",
   "dart",
@@ -52,6 +52,86 @@ const slugs = [
   "figma",
 ];
 
+// --- Centralized Project Data ---
+const projectData = [
+  {
+    title: "Solaris-Frontend",
+    description:
+      "A robust front-end project designed for seamless management and organization of digital posters. Solaris provides features such as user registration, login with JWT-based authentication, form validation, and fluid UI/UX using Shadcn UI + Tailwind CSS",
+    link: "https://github.com/Nafisarkar/Solaris-Frontend",
+    livestatus: true,
+    liveurl: "https://solarisposter.vercel.app/",
+  },
+
+  {
+    title: "Typo-WordRush",
+    description:
+      "Test and improve your typing speed and accuracy with this sleek, timed typing challenge built using React, Vite, Tailwind CSS, and Shadcn UI",
+    link: "https://github.com/Nafisarkar/Typo-WordRush",
+    livestatus: true,
+    liveurl: "https://typo-word-rush.vercel.app/",
+  },
+  {
+    title: "Movilog_Move_Info_Finder",
+    description:
+      "Moviepedia is a web application designed to provide detailed information about movies. Users can explore trending movies, search for specific movies, and filter results by year, language, and genre.",
+    link: "https://github.com/Nafisarkar/Movilog_Move_Info_Finder",
+    livestatus: true,
+    liveurl: "https://movilog.vercel.app/",
+  },
+  {
+    title: "MemeWall",
+    description:
+      "This project, built with React, Tailwind CSS, and Shadcn UI, displays the top 100 trending memes from the internet.",
+    link: "https://github.com/Nafisarkar/MemeWall",
+    livestatus: true,
+    liveurl: "https://meme-wall.vercel.app/",
+  },
+  {
+    title: "Pdf Maker",
+    description:
+      "The PDF Maker App is a Flutter-based mobile application that lets users convert images into PDF files effortlessly.",
+    link: "https://github.com/Nafisarkar/Pdf_Maker_Flutter",
+    livestatus: true,
+    liveurl:
+      "https://github.com/Nafisarkar/Pdf_Maker_Flutter/releases/tag/Releasev1.0.0",
+  },
+  {
+    title: "Rice Leaf Disease Detector",
+    description:
+      "This application uses the TFLite plugin for Flutter to execute a cnn model. It detects diseases directly on the device with accuracy.",
+    link: "https://github.com/Nafisarkar/Rice_Leaf_Disease_Detector",
+    livestatus: false,
+    liveurl: "",
+  },
+  {
+    title: "Pdf Converter OCR",
+    description:
+      "This is a graphical tool for Optical Character Recognition on images, converting PDFs to images, and merging text files in a selected folder.",
+    link: "https://github.com/Nafisarkar/Pdf_Converter_OCR",
+    livestatus: false,
+    liveurl: "",
+  },
+  {
+    title: "iamCracked",
+    description:
+      "The software provides a framework for developers to create and include their own hacking modules, allowing for extensibility and customization.",
+    link: "https://github.com/Nafisarkar/iamCracked",
+    livestatus: false,
+    liveurl: "",
+  },
+
+  // --- ADD NEW PROJECTS HERE ---
+  // Example:
+  // {
+  //   title: "New Awesome Project",
+  //   description: "A brief description of what this new project does.",
+  //   link: "https://github.com/yourusername/new-awesome-project"
+  // },
+  // -----------------------------
+];
+// --- End of Centralized Project Data ---
+
 const homepage = () => {
   useEffect(() => {
     document.documentElement.classList.add("dark");
@@ -67,6 +147,16 @@ const homepage = () => {
     (slug) => `https://cdn.simpleicons.org/${slug}/${slug}`
   );
 
+  // Extract data needed for components and onClick handler
+  const projectTitles = projectData.map((p) => p.title);
+  const projectDescriptions = projectData.map((p) => p.description);
+  const projectliveurls = projectData.map((p) => p.liveurl);
+  const projectStatuses = projectData.map((p) => p.livestatus);
+  const projectLinks = projectData.reduce((acc, project) => {
+    acc[project.title] = project.link;
+    return acc;
+  }, {}); // Create a lookup map { title: link }
+
   return (
     <div>
       <div className="fixed inset-0 -z-10 min-h-screen h-screen w-full overflow-hidden">
@@ -79,6 +169,7 @@ const homepage = () => {
       </div>
       <div className="min-h-screen flex items-center justify-center">
         <BentoGrid>
+          {/* --- Profile Card --- */}
           <BentoCard
             name={"Shoan An Nafi"}
             description={
@@ -102,7 +193,7 @@ const homepage = () => {
                   className="absolute inset-0 object-cover w-full h-full"
                 />
                 <div
-                  className="absolute top-4 right-4"
+                  className="absolute top-4 right-4 cursor-pointer" // Added cursor-pointer
                   onClick={() => {
                     document.documentElement.classList.toggle("dark");
                     setBackground(
@@ -129,11 +220,12 @@ const homepage = () => {
             }
           />
 
+          {/* --- Typing Animation Card --- */}
           <BentoCard
             name=""
             description=""
             Icon={() => <div></div>}
-            href="#"
+            // href="#" // Removed href as it's not used
             background={
               <div className="absolute inset-0 flex items-center justify-center bg-black/90 p-4">
                 <pre className="text-xs text-white/80 overflow-hidden">
@@ -143,8 +235,8 @@ const homepage = () => {
                       duration={100}
                       startOnView={true}
                     >{`Aspiring software engineer
-with a passion for creating 
-innovative and efficient 
+with a passion for creating
+innovative and efficient
 solutions using cutting-edge
 technologies.`}</TypingAnimation>
                   </code>
@@ -162,6 +254,8 @@ technologies.`}</TypingAnimation>
               borderWidth: 1,
             }}
           />
+
+          {/* --- Links Card --- */}
           <BentoCard
             name=""
             description=""
@@ -238,91 +332,86 @@ technologies.`}</TypingAnimation>
             </div>
           </BentoCard>
 
+          {/* --- Recent Projects Card --- */}
           <BentoCard
             name="Recent Projects"
             isTransparent={true}
             opacity={10}
             projectTitle={
+              // Pass the extracted titles array
               <span className="text-[#9E7AFF]">
-                <MorphingText
-                  texts={[
-                    "MemeWall",
-                    "Pdf Maker",
-                    "Rice Leaf Disease Detector",
-                    "Pdf Converter OCR",
-                    "iamCracked",
-                  ]} // Define a fixed height for the title
-                />
+                <MorphingText texts={projectTitles} />
               </span>
             }
+            liveurl={projectliveurls}
+            livestatus={<MorphingText texts={projectStatuses} />}
             projectDescription={
-              <MorphingTextDescription
-                texts={[
-                  "This project, built with React, Tailwind CSS, and Shadcn UI, displays the top 100 trending memes from the internet.",
-                  "The PDF Maker App is a Flutter-based mobile application that lets users convert images into PDF files effortlessly.",
-                  "This application uses the TFLite plugin for Flutter to execute a cnn model. It detects diseases directly on the device with accuracy.",
-                  "This is a graphical tool for Optical Character Recognition on images, converting PDFs to images, and merging text files in a selected folder.",
-                  "The software provides a framework for developers to create and include their own hacking modules, allowing for extensibility and customization.",
-                ]} // Define a fixed height for the description and add vertical scrollbar
-              />
+              // Pass the extracted descriptions array
+              <MorphingTextDescription texts={projectDescriptions} />
             }
             borderBeamProps={{
               show: false,
             }}
             className="md:block md:col-span-2 md:row-span-1 cursor-pointer transition-transform duration-500 hover:scale-105"
             onClick={() => {
+              // Use the same DOM query logic for now, but look up in the generated map
               const projectTitleElement = document.querySelector(
-                ".project-title-text"
+                ".project-title-text" // Assuming MorphingText renders the text within an element with this class
               );
 
-              const projectName = projectTitleElement
-                ? projectTitleElement.textContent
-                : "undefined";
-              const links = {
-                MemeWall: "https://github.com/Nafisarkar/MemeWall",
-                "Pdf Maker": "https://github.com/Nafisarkar/Pdf_Maker_Flutter",
-                "Rice Leaf Disease Detector":
-                  "https://github.com/Nafisarkar/Rice_Leaf_Disease_Detector",
-                "Pdf Converter OCR":
-                  "https://github.com/Nafisarkar/Pdf_Converter_OCR",
-                iamCracked: "https://github.com/Nafisarkar/iamCracked",
-              };
+              const currentProjectName = projectTitleElement
+                ? projectTitleElement.textContent?.trim() // Add trim() just in case
+                : undefined;
 
-              console.log(projectName);
-
-              const link = links[projectName];
-              console.log(link || "undefined");
-              if (link) {
+              if (currentProjectName && projectLinks[currentProjectName]) {
+                const link = projectLinks[currentProjectName];
                 navigator.clipboard.writeText(link);
                 toast({
                   duration: 2000,
-                  title: "Link Copied " + projectName,
+                  title: `Link Copied: ${currentProjectName}`,
                   description: link,
                 });
+              } else {
+                console.warn(
+                  "Could not find link for project:",
+                  currentProjectName
+                );
+                // Optional: Show a toast indicating an error
+                // toast({
+                //   title: "Error",
+                //   description: "Could not copy link for the current project.",
+                //   variant: "destructive", // If your toast system supports variants
+                // });
               }
             }}
           />
 
+          {/* --- Skills Velocity Scroll Card --- */}
           <BentoCard
             name=""
             description=""
             Icon={() => <div></div>}
-            href="#"
-            cta="Learn More"
+            // href="#" // Removed href
+            // cta="Learn More" // Removed cta
             background={
               <div className="absolute inset-0 flex items-center justify-center bg-black/90 p-4">
-                <pre className="text-xs text-white/80 overflow-hidden">
+                <div className="text-xs text-white/80 overflow-hidden w-full">
+                  {" "}
+                  {/* Added w-full for better layout */}
                   <VelocityScroll
                     className="font-mono"
-                    defaultVelocity={0.5}
-                  >{`C C++ Python Flutter Dart JavaScript React Java Html Css MongoDB Firebase Git Github Figma Tailwind Chakra Ui shadcn ui Photoshop`}</VelocityScroll>
-                </pre>
+                    defaultVelocity={0.5} // Slightly slower might look smoother
+                  >{`C C++ Python Flutter Dart JavaScript React Java HTML CSS MongoDB Firebase Git Github Figma TailwindCSS ChakraUI ShadcnUI Photoshop Node.js Express Docker Vercel `}</VelocityScroll>{" "}
+                  {/* Added more skills, removed duplicates, better spacing */}
+                </div>
               </div>
             }
             className={
               "md:block md:col-span-2 md:row-span-1 cursor-pointer transition-transform duration-500 hover:scale-105"
             }
           />
+
+          {/* --- Tech Stack Icon Cloud Card --- */}
           <BentoCard
             name="{ TECH } STACK"
             description={
@@ -375,6 +464,8 @@ technologies.`}</TypingAnimation>
               </div>
             }
           />
+
+          {/* --- Learning Card --- */}
           <BentoCard
             name=""
             description=""
@@ -409,6 +500,8 @@ technologies.`}</TypingAnimation>
             }
             className={"md:block md:col-span-1 md:row-span-1"}
           />
+
+          {/* --- Spotify / Availability Card --- */}
           <BentoCard
             name=""
             description=""
@@ -441,7 +534,7 @@ technologies.`}</TypingAnimation>
                   }).format(new Date())}
                 </p>
                 <Spotify
-                  link="https://open.spotify.com/track/0COqiPhxzoWICwFCS4eZcp?si=531a91df6c7f44f1"
+                  link="https://open.spotify.com/track/4R8VBRb5nKbEfi1EIA2B7p?si=9d410c535c3c4bde"
                   width={"100%"}
                   height={"100%"}
                   frameBorder={0}

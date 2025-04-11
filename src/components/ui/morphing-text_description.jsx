@@ -94,21 +94,17 @@ const Texts = ({ texts }) => {
   return (
     <div className="relative ">
       {/* First Text Block */}
-      <div
-        className="absolute text-xs text-start"
-        ref={text1Ref}
-      />
+      <div className="absolute text-xs text-start" ref={text1Ref} />
       {/* Second Text Block */}
-      <div
-        className="absolute text-xs text-start "
-        ref={text2Ref}
-      />
+      <div className="absolute text-xs text-start " ref={text2Ref} />
     </div>
   );
 };
 
 export const MorphingTextDescription = ({ texts, className }) => (
-  <div className={`h-12 lg:w-[400px] md:w-[300px] sm:w-[200px] pt-1 ${className}`}>
+  <div
+    className={`h-12 lg:w-[400px] md:w-[300px] sm:w-[200px] pt-1 ${className}`}
+  >
     <Texts texts={texts} />
   </div>
 );

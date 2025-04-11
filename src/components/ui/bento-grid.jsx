@@ -35,6 +35,8 @@ const BentoCard = ({
   projectTitle,
   projectDescription,
   onClick,
+  liveurl,
+  livestatus,
   children,
   isTransparent = false,
   opacity = 100,
