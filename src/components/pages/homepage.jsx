@@ -365,6 +365,7 @@ technologies.`}</TypingAnimation>
 
               if (currentProjectName && projectLinks[currentProjectName]) {
                 const link = projectLinks[currentProjectName];
+
                 navigator.clipboard.writeText(link);
                 toast({
                   duration: 2000,
