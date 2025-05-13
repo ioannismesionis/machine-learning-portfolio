@@ -1,14 +1,10 @@
-# Brutalist Portfolio
-
-<p align="center">
-  <img src="./public/demo.webp" alt="Brutalist Portfolio Banner" />
-</p>
+# Project Name
 
 A modern, responsive frontend application built with React, Vite, Tailwind CSS v4, and Shadcn/UI.
 
 ## Table of Contents
 
-- [Brutalist Portfolio](#brutalist-portfolio)
+- [Project Name](#project-name)
   - [Table of Contents](#table-of-contents)
   - [Features](#features)
   - [Tech Stack](#tech-stack)
