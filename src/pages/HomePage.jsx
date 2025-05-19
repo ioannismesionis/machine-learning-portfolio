@@ -4,9 +4,11 @@ import React from "react";
 import { FaArrowRightLong, FaDiscord, FaInstagram } from "react-icons/fa6";
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa6";
-import { SiDreamstime, SiWakatime } from "react-icons/si";
+import { SiDreamstime, SiExpress, SiWakatime } from "react-icons/si";
 import { motion } from "framer-motion";
+import { TbBrandReact } from "react-icons/tb";
 import { PiInstagramLogoFill } from "react-icons/pi";
+import { RiTailwindCssFill } from "react-icons/ri";
 
 const HomePage = () => {
   const iconsContainerVariants = {
@@ -104,18 +106,34 @@ const HomePage = () => {
         {/* Header Section */}
         <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-6">
           {/* Profile Image */}
+
           <motion.div
-            className="flex justify-center md:order-2 "
+            className="relative flex justify-center md:order-2"
             variants={profileImageVariants}
             initial="hidden"
             animate="visible"
           >
-            <div className="overflow-hidden rounded-full h-48 w-48 sm:h-64 sm:w-64 md:h-72 md:w-72 shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)]">
-              <img
-                src={profileImage}
-                alt="Profile"
-                className="h-full w-full bg-main-foreground rounded-full object-cover transform transition-all duration-500 ease-in-out scale-155"
-              />
+            {/* Fixed-size wrapper */}
+            <div className="relative w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80">
+              {/* Profile Image */}
+              <div className="overflow-hidden rounded-full w-full h-full shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] z-10">
+                <img
+                  src={profileImage}
+                  alt="Profile"
+                  className="h-full w-full bg-main-foreground rounded-full object-cover transform transition-all duration-500 ease-in-out scale-155"
+                />
+              </div>
+
+              {/* Floating Icons */}
+              <div className="absolute top-1 left-16 animate-float-fast z-20 text-main ">
+                <SiExpress size={28} />
+              </div>
+              <div className="absolute bottom-4 left-4 animate-float-slow  z-20">
+                <TbBrandReact size={28} />
+              </div>
+              <div className="absolute bottom-8 right-2 animate-float z-20">
+                <RiTailwindCssFill size={28} />
+              </div>
             </div>
           </motion.div>
 
