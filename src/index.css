@@ -5,40 +5,39 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #ECE3CE;
+  --background: #ece3ce;
   --secondary-background: #ffffff;
-  --foreground: #3A4D39;
+  --foreground: #3a4d39;
   --main-foreground: #243b27;
   --main: #739072;
-  --border: #4F6F52;
+  --border: #4f6f52;
   --ring: #739072;
   --overlay: rgba(58, 77, 57, 0.8);
   --shadow: -4px 4px 0px 0px var(--border);
-  --chart-1: #ECE3CE;
+  --chart-1: #ece3ce;
   --chart-2: #739072;
-  --chart-3: #4F6F52;
-  --chart-4: #3A4D39;
-  --chart-5: #A8B6A3; /* Added soft accent */
-  --chart-active-dot: #3A4D39;
+  --chart-3: #4f6f52;
+  --chart-4: #3a4d39;
+  --chart-5: #a8b6a3; /* Added soft accent */
+  --chart-active-dot: #3a4d39;
 }
 
 .dark {
   --background: #1f291e;
-  --secondary-background: #2E3A2D; /* darker tone */
-  --foreground: #ECE3CE;
+  --secondary-background: #2e3a2d; /* darker tone */
+  --foreground: #ece3ce;
   --main-foreground: #263d29;
   --main: #739072;
   --border: #405a43;
   --ring: #739072;
   --shadow: -4px 4px 0px 0px var(--border);
-  --chart-1: #A8B6A3;
+  --chart-1: #a8b6a3;
   --chart-2: #739072;
-  --chart-3: #4F6F52; 
-  --chart-4: #ECE3CE;
-  --chart-5: #BFC9B0;
+  --chart-3: #4f6f52;
+  --chart-4: #ece3ce;
+  --chart-5: #bfc9b0;
   --chart-active-dot: #fff;
 }
-
 
 @keyframes float {
   0%,
@@ -48,7 +47,6 @@
   50% {
     transform: translateY(-20px);
   }
-
 }
 
 .animate-float {
@@ -60,7 +58,6 @@
 .animate-float-fast {
   animation: float 2s ease-in-out infinite;
 }
-
 
 @theme inline {
   --color-main: var(--main);
@@ -88,8 +85,30 @@
 }
 
 @layer base {
+  /* Apply a general transition to properties commonly affected by theme changes.
+     This ensures a smooth visual shift across the entire UI. */
+  *,
+  *::before,
+  *::after {
+    transition-property: background-color, border-color, color, fill, stroke,
+      box-shadow;
+    /* Increased duration for a smoother, more noticeable transition */
+    transition-duration: 0.8s;
+    /* Using a common "ease-in-out-quad" like curve for a refined feel.
+       This specific cubic-bezier provides a gentle acceleration and deceleration. */
+    transition-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    /* Avoid transitioning 'transform' or 'opacity' globally here if other animation
+       libraries like Framer Motion are used extensively for those properties,
+       as it might cause conflicts. */
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply text-foreground font-base bg-background;
+    /* The global transition above will handle the body's background and text color changes. */
   }
 
   h1,

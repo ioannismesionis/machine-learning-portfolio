@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { BrowserRouter, Routes, Route, useLoaderData } from "react-router";
+import { BrowserRouter, Routes, Route } from "react-router";
 import HomePage from "./pages/HomePage";
 import Navbar from "./components/ui/Navbar";
 import ExperiencePage from "./pages/ExperiencePage";
