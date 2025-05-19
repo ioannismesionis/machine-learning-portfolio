@@ -1,57 +1,57 @@
 import ProjectCard from "@/components/ui/ProjectCard";
-import React, { useState, useEffect } from "react";
-import { supabase } from "../utils/supabase";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { motion } from "framer-motion";
+import { fetchProjects } from "@/redux/projectSlice";
 
 const ProjectPage = () => {
-  const [projects, setProjects] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const dispatch = useDispatch();
+  const {
+    items: projects,
+    loading: pageLoading, // Ensure this matches the state name in your slice
+    error,
+  } = useSelector((state) => state.projects);
 
   useEffect(() => {
-    const fetchProjects = async () => {
-      try {
-        let { data, error } = await supabase.from("projects").select("*");
-        if (data) {
-          data = data.reverse(); // reverses in-place
-        }
-        console.log("Supabase response:", data, error);
+    if (!projects.length && !pageLoading && !error) {
+      dispatch(fetchProjects());
+    } else if (projects.length === 0 && !error && pageLoading === undefined) {
+      dispatch(fetchProjects());
+    }
+  }, [dispatch, projects.length, pageLoading, error]);
 
-        if (error) {
-          throw error;
-        }
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
 
-        if (data && data.length > 0) {
-          // Transform data if needed to match the expected format
-          const formattedProjects = data.map((project) => ({
-            id: project.id,
-            category: project.category,
-            title: project.title,
-            description: project.description,
-            techstacks: project.techstacks || [], // Ensure it's an array
-            link: project.link || "#",
-          }));
-
-          setProjects(formattedProjects);
-        } else {
-          // Use sample data if no projects found
-          console.log("No data found, using sample projects");
-        }
-      } catch (err) {
-        console.error("Error fetching projects:", err);
-        setError(err.message);
-        // Fallback to sample data
-        console.log("Error occurred, using sample projects");
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchProjects();
-  }, []);
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20, scale: 0.98 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: { duration: 0.5, ease: "easeOut" },
+    },
+  };
 
   return (
-    <div className="max-w-5xl mx-auto px-4 py-8">
-      <h1 className="text-3xl font-RobotoMono mb-6">My Projects</h1>
+    <div className="max-w-5xl mx-auto px-4 py-8 min-h-[calc(100vh-200px)] flex flex-col justify-start">
+      {pageLoading ? null : (
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="text-3xl mb-6 text-center md:text-start"
+        >
+          My Projects
+        </motion.h1>
+      )}
 
       {error && (
         <div
@@ -59,36 +59,34 @@ const ProjectPage = () => {
           role="alert"
         >
           <p>Failed to load projects: {error}</p>
-          <p className="text-sm">Showing sample projects instead.</p>
         </div>
       )}
 
-      {loading ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {[...Array(3)].map((_, index) => (
-            <ProjectCard key={index} />
-          ))}
-        </div>
-      ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.length > 0 ? (
-            projects.map((project) => (
-              <ProjectCard
-                key={project.id}
-                category={project.category}
-                title={project.title}
-                description={project.description}
-                techstacks={project.techstacks}
-                link={project.link}
-              />
-            ))
-          ) : (
-            <div className="col-span-full text-center py-10">
-              <p className="text-gray-500">No projects found</p>
-            </div>
-          )}
-        </div>
-      )}
+      {/* Always render the grid structure. Content within depends on loading/data state. */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {pageLoading ? null : projects.length > 0 ? ( // For now, rendering null to keep the grid empty // When loading, render nothing in the grid area, or a single loading message/spinner
+          // Render the animated project cards if projects are loaded
+          <motion.div
+            className="contents" // Use 'contents' to make this div not affect grid layout itself
+            // The motion.div children will be direct grid items
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+          >
+            {projects.map((project) => (
+              <motion.div key={project.id} variants={itemVariants}>
+                <ProjectCard projectData={project} />
+              </motion.div>
+            ))}
+          </motion.div>
+        ) : (
+          // No projects found, and not loading
+          // This div needs to span all columns of the parent grid
+          <div className="md:col-span-2 lg:col-span-3 text-center py-10 flex-grow flex items-center justify-center">
+            <p className="text-gray-500">No projects found.</p>
+          </div>
+        )}
+      </div>
     </div>
   );
 };

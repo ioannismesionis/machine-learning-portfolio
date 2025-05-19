@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { FaArrowRight } from "react-icons/fa6";
 import {
   Card,
@@ -10,22 +10,16 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
-const ProjectCard = ({
-  category = "",
-  title = "",
-  description = "",
-  techstacks = [],
-  link = "#",
-}) => {
-  const [isLoading, setIsLoading] = useState(true);
+const ProjectCard = ({ projectData }) => {
+  const isLoading = !projectData;
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
-
-    return () => clearTimeout(timer);
-  }, []);
+  const {
+    category = "",
+    title = "",
+    description = "",
+    techstacks = [],
+    link = "#",
+  } = projectData || {};
 
   if (isLoading) {
     return (
@@ -38,8 +32,8 @@ const ProjectCard = ({
           <Skeleton className="mb-4 h-4 w-full" />
           <Skeleton className="mb-4 h-4 w-5/6" />
           <Skeleton className="mb-4 h-4 w-4/6" />
-          <div className="flex flex-wrap gap-2 mt-4">
-            {[...Array(5)].map((_, index) => (
+          <div className={`flex flex-wrap gap-2 mt-4`}>
+            {[...Array(3)].map((_, index) => (
               <Skeleton key={index} className="h-6 w-16 " />
             ))}
           </div>
@@ -55,16 +49,20 @@ const ProjectCard = ({
     <Card className="flex flex-col w-full h-[380px] sm:w-[300px]">
       <CardHeader>
         <code className="text-xs">{category}</code>
-        <h1 className="text-xl font-RobotoMono line-clamp-1">{title}</h1>
+        <h1 className="text-xl  line-clamp-1 font-JetBrains">{title}</h1>
       </CardHeader>
       <CardContent className="flex-1 overflow-hidden pb-10">
-        <p className="mb-4 text-sm line-clamp-3 font-WorkSans text-justify">{description}</p>
-        <div className="flex flex-wrap gap-2">
+        <p className="mb-4 text-xs line-clamp-5 text-justify font-Roboto opacity-75 ">
+          {description}
+        </p>
+        <div
+          className={`flex flex-wrap gap-1 font-JetBrains `}
+        >
           {techstacks &&
             techstacks.map((tech, index) => (
               <Badge
                 key={index}
-                className="flex justify-center whitespace-nowrap text-center"
+                className="flex justify-center whitespace-nowrap text-center text-xs "
               >
                 {tech}
               </Badge>

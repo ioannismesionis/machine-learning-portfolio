@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { BrowserRouter, Routes, Route } from "react-router";
+import { BrowserRouter, Routes, Route, useLoaderData } from "react-router";
 import HomePage from "./pages/HomePage";
 import Navbar from "./components/ui/Navbar";
 import ExperiencePage from "./pages/ExperiencePage";
@@ -11,9 +11,6 @@ const App = () => {
   useEffect(() => {
     document.title = "Nafisarkar | Portfolio";
     const isDarkMode = localStorage.getItem("theme") === "dark";
-
-    console.log(isDarkMode);
-
     if (isDarkMode) {
       document.documentElement.classList.add("dark");
       localStorage.setItem("theme", "dark");

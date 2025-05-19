@@ -82,7 +82,7 @@ const Navbar = () => {
         </div>
         <div className="hidden lg:flex flex-row gap-12 justify-center items-center">
           <NavLink
-            className="cursor-pointer"
+            className="cursor-pointer hover:underline hover:underline-offset-4"
             to={"/project"}
             onClick={toggleMenu}
           >
@@ -95,7 +95,12 @@ const Navbar = () => {
           >
             Experience
           </NavLink> */}
-          <NavLink className="cursor-pointer" to={"/"} onClick={toggleMenu}>
+          <NavLink
+            className="cursor-pointer hover:underline hover:underline-offset-4
+            "
+            to={"/"}
+            onClick={toggleMenu}
+          >
             About
           </NavLink>
           <Button
