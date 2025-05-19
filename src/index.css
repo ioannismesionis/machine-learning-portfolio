@@ -85,23 +85,6 @@
 }
 
 @layer base {
-  /* Apply a general transition to properties commonly affected by theme changes.
-     This ensures a smooth visual shift across the entire UI. */
-  *,
-  *::before,
-  *::after {
-    transition-property: background-color, border-color, color, fill, stroke,
-      box-shadow;
-    /* Increased duration for a smoother, more noticeable transition */
-    transition-duration: 0.8s;
-    /* Using a common "ease-in-out-quad" like curve for a refined feel.
-       This specific cubic-bezier provides a gentle acceleration and deceleration. */
-    transition-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
-    /* Avoid transitioning 'transform' or 'opacity' globally here if other animation
-       libraries like Framer Motion are used extensively for those properties,
-       as it might cause conflicts. */
-  }
-
   html {
     scroll-behavior: smooth;
   }

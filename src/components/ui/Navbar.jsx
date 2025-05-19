@@ -48,7 +48,7 @@ const Navbar = () => {
               type: "tween",
               ease: "easeInOut",
             }}
-            className="min-h-screen absolute flex flex-col w-[300px] justify-center items-center gap-8 lg:hidden z-10 bg-main border-r-2"
+            className="min-h-screen absolute flex flex-col w-[300px] justify-center items-center gap-8 lg:hidden z-100 border-r-2 bg-background"
           >
             <NavLink
               className="cursor-pointer"
