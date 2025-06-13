@@ -5,7 +5,7 @@ import { FaArrowRightLong, FaDiscord, FaInstagram } from "react-icons/fa6";
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa6";
 import { SiDreamstime, SiExpress, SiWakatime } from "react-icons/si";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 import { TbBrandReact } from "react-icons/tb";
 import { PiInstagramLogoFill } from "react-icons/pi";
 import { RiTailwindCssFill } from "react-icons/ri";
@@ -128,9 +128,21 @@ const HomePage = () => {
               <div className="absolute top-1 left-16 animate-float-fast z-20 text-main ">
                 <SiExpress size={28} />
               </div>
-              <div className="absolute bottom-4 left-4 animate-float-slow  z-20">
+              <motion.div
+                className="absolute bottom-4 left-4 z-20"
+                animate={{
+                  rotate: [0, 360],
+                  y: [0, -20, 0],
+                }}
+                transition={{
+                  repeat: Infinity,
+                  duration: 6,
+                  ease: "easeInOut",
+                }}
+              >
                 <TbBrandReact size={28} />
-              </div>
+              </motion.div>
+
               <div className="absolute bottom-8 right-2 animate-float z-20">
                 <RiTailwindCssFill size={28} />
               </div>
