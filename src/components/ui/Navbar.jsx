@@ -7,7 +7,7 @@ import { AiOutlineMenu } from "react-icons/ai";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const menuRef = useRef(null); 
+  const menuRef = useRef(null);
 
   useEffect(() => {
     const handleResize = () => {
@@ -103,7 +103,7 @@ const Navbar = () => {
             <Toggle />
           </a>
         </div>
-        <div className="hidden lg:flex flex-col gap-6 justify-center items-center">
+        <div className="hidden lg:flex flex-row gap-6 justify-center items-center">
           <NavLink
             className="cursor-pointer hover:underline hover:underline-offset-4"
             to="/project"
