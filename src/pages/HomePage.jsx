@@ -268,21 +268,29 @@ const HomePage = () => {
               pleasing but also robust and scalable.
             </motion.p>
             <motion.p variants={paragraphItemVariants} className="text-justify">
-              Currently, I'm focused on expanding my skills in web development,
+              {/* Currently, I'm focused on expanding my skills in web development,
               with particular interest in React and Node.js. Through my
               coursework and personal projects, I've gained experience in UI/UX
               design principles, responsive layouts, and modern JavaScript
               frameworks. I enjoy tackling complex problems and finding elegant
               solutions that prioritize user experience while maintaining code
-              quality.
+              quality. */}
+              Currently, I'm focused on growing my web development skills, with
+              a strong interest in React and Node.js. Through coursework and
+              personal projects, I've gained experience in UI/UX design,
+              responsive layouts, and modern JavaScript frameworks. I enjoy
+              solving complex problems with elegant, user-focused solutions that
+              maintain high code quality.
             </motion.p>
             <motion.p variants={paragraphItemVariants} className="text-justify">
-              When I'm not coding, you'll find me exploring new technologies, or
+              {/* When I'm not coding, you'll find me exploring new technologies, or
               expanding my knowledge through online courses. Beyond tech, I
               enjoy photography in my free time, playing video games, reading
-              books, and occasionally traveling to experience different cultures
-              and perspectives. I'm always looking for opportunities to
-              collaborate on projects that can make a positive impact.
+              books, and occasionally traveling. I'm always looking for opportunities to
+              collaborate on projects that can make a positive impact. */}
+              Outside of coding, I enjoy exploring new tech, learning online,
+              photography, gaming, reading, and occasional travel. I'm always
+              open to impactful collaborations.
             </motion.p>
           </motion.div>
         </div>
