@@ -64,13 +64,14 @@ const Navbar = () => {
         {isOpen && (
           <>
             {/* Red background covering whole screen */}
-            <motion.div
-              className="fixed inset-0 bg-white/1 backdrop-blur-sm z-40"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-            />
-
+            {isOpen && (
+              <motion.div
+                className="fixed inset-0 bg-white/10 backdrop-blur-sm z-40 lg:hidden"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+              />
+            )}
             {/* Sidebar */}
             <motion.div
               ref={menuRef}
