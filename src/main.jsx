@@ -4,30 +4,28 @@ import "./index.css";
 import App from "./App.jsx";
 import { Provider } from "react-redux";
 import store from "./redux/store";
-import { ReactLenis, useLenis } from "lenis/react";
+import { ReactLenis } from "lenis/react";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <ReactLenis
       root
       options={{
+        lerp: 0.08, // Much lower for ultra-smooth interpolation
+        duration: 2.2, // Longer duration for more graceful animation
         smoothWheel: true,
         smoothTouch: true,
-        smoothTouchDelay: 0.1,
-        touchMultiplier: 2,
-        wheelMultiplier: 1.5,
-        easing: (t) => t * (2 - t), // Custom easing function
-        duration: 1.2, // Duration of the scroll animation
-        infinite: false, // Disable infinite scrolling
-        direction: "vertical", // Scroll direction
-        gestureDirection: "vertical", // Gesture direction
-        normalizeWheel: true, // Normalize wheel events
-        lerp: 0.2, // Linear interpolation factor
-        scrollFromAnywhere: true, // Allow scrolling from anywhere
+        touchMultiplier: 1.5,
+        wheelMultiplier: 0.6, // Lower for more controlled scrolling
+        normalizeWheel: true,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Exponential ease-out
+        infinite: false,
+        gestureOrientation: "vertical",
       }}
-    />
-    <Provider store={store}>
-      <App />
-    </Provider>
+    >
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </ReactLenis>
   </StrictMode>
 );
