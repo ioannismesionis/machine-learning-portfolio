@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, use } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import Toggle from "./toggle";
 import { motion, AnimatePresence } from "motion/react";
@@ -10,8 +10,6 @@ const Navbar = () => {
   const [locationPath, setLocationPath] = useState("/");
   const menuRef = useRef(null);
   const location = useLocation();
-
-  console.log("Current location:", location.pathname);
 
   useEffect(() => {
     const handleResize = () => {
