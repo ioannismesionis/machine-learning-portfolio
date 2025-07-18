@@ -8,6 +8,8 @@ import ProjectPage from "./pages/ProjectPage";
 import Footer from "./components/ui/footer";
 
 const App = () => {
+
+
   useEffect(() => {
     document.title = "Nafisarkar | Portfolio";
     const isDarkMode = localStorage.getItem("theme") === "dark";

@@ -1,13 +1,17 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, use } from "react";
 import { Button } from "@/components/ui/button";
 import Toggle from "./toggle";
 import { motion, AnimatePresence } from "motion/react";
-import { NavLink } from "react-router";
+import { NavLink, useLocation } from "react-router";
 import { AiOutlineMenu } from "react-icons/ai";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [locationPath, setLocationPath] = useState("/");
   const menuRef = useRef(null);
+  const location = useLocation();
+
+  console.log("Current location:", location.pathname);
 
   useEffect(() => {
     const handleResize = () => {
@@ -18,6 +22,10 @@ const Navbar = () => {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  useEffect(() => {
+    setLocationPath(location.pathname);
+  }, [location.pathname]);
 
   useEffect(() => {
     const handleScroll = () => setIsOpen(false);
@@ -81,16 +89,22 @@ const Navbar = () => {
               transition={{ duration: 0.3, type: "tween", ease: "easeInOut" }}
               className="min-h-screen fixed top-0 right-0 flex flex-col w-[300px] justify-center items-center gap-8 lg:hidden z-50 border-l-2 bg-background"
             >
-              <NavLink
-                className="cursor-pointer"
-                to="/project"
-                onClick={toggleMenu}
-              >
-                Project
-              </NavLink>
-              <NavLink className="cursor-pointer" to="/" onClick={toggleMenu}>
-                About
-              </NavLink>
+              {locationPath === "/" ? (
+                <>
+                  <NavLink
+                    className="cursor-pointer"
+                    to="/project"
+                    onClick={toggleMenu}
+                  >
+                    Project
+                  </NavLink>
+                </>
+              ) : (
+                <NavLink className="cursor-pointer" to="/" onClick={toggleMenu}>
+                  About
+                </NavLink>
+              )}
+
               <Button onClick={downloadResume}>Resume</Button>
             </motion.div>
           </>
@@ -105,20 +119,24 @@ const Navbar = () => {
           </a>
         </div>
         <div className="hidden lg:flex flex-row gap-6 justify-center items-center">
-          <NavLink
-            className="cursor-pointer hover:underline hover:underline-offset-4"
-            to="/project"
-            onClick={toggleMenu}
-          >
-            Project
-          </NavLink>
-          <NavLink
-            className="cursor-pointer hover:underline hover:underline-offset-4"
-            to="/"
-            onClick={toggleMenu}
-          >
-            About
-          </NavLink>
+          {locationPath === "/" ? (
+            <NavLink
+              className="cursor-pointer hover:underline hover:underline-offset-4"
+              to="/project"
+              onClick={toggleMenu}
+            >
+              Project
+            </NavLink>
+          ) : (
+            <NavLink
+              className="cursor-pointer hover:underline hover:underline-offset-4"
+              to="/"
+              onClick={toggleMenu}
+            >
+              About
+            </NavLink>
+          )}
+
           <Button onClick={downloadResume}>Resume</Button>
         </div>
         <AiOutlineMenu className="lg:hidden mx-8 size-5" onClick={toggleMenu} />
