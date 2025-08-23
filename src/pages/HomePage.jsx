@@ -302,6 +302,99 @@ const HomePage = () => {
             </motion.p>
           </motion.div>
         </div>
+
+        {/* Skills Section */}
+        <div className="w-full px-4 mb-8 md:px-0 mt-8">
+          <motion.h2
+            initial={{ opacity: 0, y: +10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="font-bold text-xl md:text-xl mb-6"
+          >
+            Skills
+          </motion.h2>
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+            variants={aboutMeContainerVariants}
+            initial="hidden"
+            animate="visible"
+          >
+            <motion.div
+              variants={paragraphItemVariants}
+              className="bg-secondary-background border-2 border-border rounded-base p-4 shadow-shadow hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all"
+            >
+              <h3 className="font-bold text-lg mb-3 text-main">Programming</h3>
+              <div className="space-y-2">
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-main rounded-full"></div>
+                  <span className="text-foreground/80 text-sm">Python</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-main rounded-full"></div>
+                  <span className="text-foreground/80 text-sm">R</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-main rounded-full"></div>
+                  <span className="text-foreground/80 text-sm">SQL</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-main rounded-full"></div>
+                  <span className="text-foreground/80 text-sm">JavaScript</span>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              variants={paragraphItemVariants}
+              className="bg-secondary-background border-2 border-border rounded-base p-4 shadow-shadow hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all"
+            >
+              <h3 className="font-bold text-lg mb-3 text-main">Data Science</h3>
+              <div className="space-y-2">
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-main rounded-full"></div>
+                  <span className="text-foreground/80 text-sm">Machine Learning</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-main rounded-full"></div>
+                  <span className="text-foreground/80 text-sm">Statistical Analysis</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-main rounded-full"></div>
+                  <span className="text-foreground/80 text-sm">Predictive Modeling</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-main rounded-full"></div>
+                  <span className="text-foreground/80 text-sm">Data Mining</span>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              variants={paragraphItemVariants}
+              className="bg-secondary-background border-2 border-border rounded-base p-4 shadow-shadow hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all"
+            >
+              <h3 className="font-bold text-lg mb-3 text-main">Specializations</h3>
+              <div className="space-y-2">
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-main rounded-full"></div>
+                  <span className="text-foreground/80 text-sm">Recommender Systems</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-main rounded-full"></div>
+                  <span className="text-foreground/80 text-sm">MLOps</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-main rounded-full"></div>
+                  <span className="text-foreground/80 text-sm">Customer Segmentation</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-main rounded-full"></div>
+                  <span className="text-foreground/80 text-sm">Model Optimization</span>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        </div>
       </div>
     </div>
   );
