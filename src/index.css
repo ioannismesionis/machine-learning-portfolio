@@ -5,38 +5,37 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #ece3ce;
+  --background: #fef3c7;
   --secondary-background: #ffffff;
-  --foreground: #3a4d39;
-  --main-foreground: #243b27;
-  --main: #739072;
-  --border: #4f6f52;
-  --ring: #739072;
-  --overlay: rgba(58, 77, 57, 0.8);
+  --foreground: #92400e;
+  --main-foreground: #1c1917;
+  --main: #facc15;
+  --border: #a16207;
+  --ring: #facc15;
+  --overlay: rgba(146, 64, 14, 0.8);
   --shadow: -4px 4px 0px 0px var(--border);
-  --chart-1: #ece3ce;
-  --chart-2: #739072;
-  --chart-3: #4f6f52;
-  --chart-4: #3a4d39;
-  --chart-5: #a8b6a3; /* Added soft accent */
-  --chart-active-dot: #3a4d39;
+  --chart-1: #fef3c7;
+  --chart-2: #facc15;
+  --chart-3: #a16207;
+  --chart-4: #92400e;
+  --chart-5: #fde047; /* Added soft accent */
+  --chart-active-dot: #1c1917;
 }
 
 .dark {
-  /* --background: #1f291e; */
-  --background: #151b14;
-  --secondary-background: #2e3a2d; /* darker tone */
-  --foreground: #ece3ce;
-  --main-foreground: #263d29;
-  --main: #739072;
-  --border: #405a43;
-  --ring: #739072;
+  --background: #1c1917;
+  --secondary-background: #292524;
+  --foreground: #fbbf24;
+  --main-foreground: #1c1917;
+  --main: #facc15;
+  --border: #a16207;
+  --ring: #facc15;
   --shadow: -4px 4px 0px 0px var(--border);
-  --chart-1: #a8b6a3;
-  --chart-2: #739072;
-  --chart-3: #4f6f52;
-  --chart-4: #ece3ce;
-  --chart-5: #bfc9b0;
+  --chart-1: #fde047;
+  --chart-2: #facc15;
+  --chart-3: #a16207;
+  --chart-4: #fefce8;
+  --chart-5: #fbbf24;
   --chart-active-dot: #fff;
 }
 

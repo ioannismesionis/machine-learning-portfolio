@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import Toggle from "./toggle";
-import { motion, AnimatePresence } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 import { NavLink, useLocation } from "react-router";
 import { AiOutlineMenu } from "react-icons/ai";
 
@@ -87,21 +87,34 @@ const Navbar = () => {
               transition={{ duration: 0.3, type: "tween", ease: "easeInOut" }}
               className="min-h-screen fixed top-0 right-0 flex flex-col w-[300px] justify-center items-center gap-8 lg:hidden z-50 border-l-2 bg-background"
             >
-              {locationPath === "/" ? (
-                <>
-                  <NavLink
-                    className="cursor-pointer"
-                    to="/project"
-                    onClick={toggleMenu}
-                  >
-                    Project
-                  </NavLink>
-                </>
-              ) : (
-                <NavLink className="cursor-pointer" to="/" onClick={toggleMenu}>
-                  About
-                </NavLink>
-              )}
+              <NavLink
+                className={`cursor-pointer ${locationPath === "/" ? "text-main font-semibold" : ""}`}
+                to="/"
+                onClick={toggleMenu}
+              >
+                About
+              </NavLink>
+              <NavLink
+                className={`cursor-pointer ${locationPath === "/experience" ? "text-main font-semibold" : ""}`}
+                to="/experience"
+                onClick={toggleMenu}
+              >
+                Experience
+              </NavLink>
+              <NavLink
+                className={`cursor-pointer ${locationPath === "/education" ? "text-main font-semibold" : ""}`}
+                to="/education"
+                onClick={toggleMenu}
+              >
+                Education
+              </NavLink>
+              <NavLink
+                className={`cursor-pointer ${locationPath === "/project" ? "text-main font-semibold" : ""}`}
+                to="/project"
+                onClick={toggleMenu}
+              >
+                Projects
+              </NavLink>
 
               <Button onClick={downloadResume}>Resume</Button>
             </motion.div>
@@ -117,23 +130,30 @@ const Navbar = () => {
           </a>
         </div>
         <div className="hidden lg:flex flex-row gap-6 justify-center items-center">
-          {locationPath === "/" ? (
-            <NavLink
-              className="cursor-pointer hover:underline hover:underline-offset-4"
-              to="/project"
-              onClick={toggleMenu}
-            >
-              Project
-            </NavLink>
-          ) : (
-            <NavLink
-              className="cursor-pointer hover:underline hover:underline-offset-4"
-              to="/"
-              onClick={toggleMenu}
-            >
-              About
-            </NavLink>
-          )}
+          <NavLink
+            className={`cursor-pointer hover:underline hover:underline-offset-4 ${locationPath === "/" ? "text-main font-semibold" : ""}`}
+            to="/"
+          >
+            About
+          </NavLink>
+          <NavLink
+            className={`cursor-pointer hover:underline hover:underline-offset-4 ${locationPath === "/experience" ? "text-main font-semibold" : ""}`}
+            to="/experience"
+          >
+            Experience
+          </NavLink>
+          <NavLink
+            className={`cursor-pointer hover:underline hover:underline-offset-4 ${locationPath === "/education" ? "text-main font-semibold" : ""}`}
+            to="/education"
+          >
+            Education
+          </NavLink>
+          <NavLink
+            className={`cursor-pointer hover:underline hover:underline-offset-4 ${locationPath === "/project" ? "text-main font-semibold" : ""}`}
+            to="/project"
+          >
+            Projects
+          </NavLink>
 
           <Button onClick={downloadResume}>Resume</Button>
         </div>

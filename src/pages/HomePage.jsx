@@ -4,11 +4,10 @@ import React from "react";
 import { FaArrowRightLong, FaDiscord, FaInstagram } from "react-icons/fa6";
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa6";
-import { SiDreamstime, SiExpress, SiWakatime } from "react-icons/si";
-import { motion, AnimatePresence } from "motion/react";
-import { TbBrandReact } from "react-icons/tb";
+import { SiKaggle, SiPython, SiTensorflow, SiPytorch } from "react-icons/si";
+import { AnimatePresence, motion } from "motion/react";
 import { PiInstagramLogoFill } from "react-icons/pi";
-import { RiTailwindCssFill } from "react-icons/ri";
+import { SiJupyter } from "react-icons/si";
 
 const HomePage = () => {
   const iconsContainerVariants = {
@@ -125,11 +124,11 @@ const HomePage = () => {
               </div>
 
               {/* Floating Icons */}
-              <div className="absolute top-1 left-16 animate-float-fast z-20 text-main ">
-                <SiExpress size={28} />
+              <div className="absolute top-1 left-16 animate-float-fast z-20 text-border ">
+                <SiPython size={28} />
               </div>
               <motion.div
-                className="absolute bottom-4 left-4 z-20"
+                className="absolute bottom-4 left-4 z-20 text-border"
                 animate={{
                   rotate: [0, 360],
                   y: [0, -20, 0],
@@ -140,11 +139,11 @@ const HomePage = () => {
                   ease: "easeInOut",
                 }}
               >
-                <TbBrandReact size={28} />
+                <SiPytorch size={28} />
               </motion.div>
 
-              <div className="absolute bottom-8 right-2 animate-float z-20">
-                <RiTailwindCssFill size={28} />
+              <div className="absolute bottom-8 right-2 animate-float z-20 text-border">
+                <SiTensorflow size={28} />
               </div>
             </div>
           </motion.div>
@@ -163,20 +162,20 @@ const HomePage = () => {
                 variants={paragraphItemVariants}
                 className="font-bold text-3xl sm:text-4xl text-center md:text-left"
               >
-                Shaon An Nafi
+                Ioannis Mesionis
               </motion.h1>
               <motion.h2
                 variants={paragraphItemVariants}
                 className="font-bold text-lg sm:text-xl text-center md:text-left mt-4"
               >
-                Software Engineer
+                Senior AI/ML Data Scientist
               </motion.h2>
               <motion.p
                 variants={paragraphItemVariants}
                 className="text-center md:text-left font-PublicSans max-w-md mt-4"
               >
-                I am passionate about integrating functionality and design in
-                applications to create intuitive, user-friendly experiences.
+                I am passionate about developing AI/ML solutions for mobile gaming,
+                specializing in recommendation systems and predictive modeling.
               </motion.p>
             </motion.div>
 
@@ -190,7 +189,7 @@ const HomePage = () => {
               <motion.div variants={buttonItemVariants} className="w-full">
                 <Button
                   onClick={() =>
-                    window.open("https://discord.com/users/_sakuno", "_blank")
+                    window.open("mailto:ioannis.mesionis@example.com", "_blank")
                   }
                   className="w-full"
                 >
@@ -200,7 +199,7 @@ const HomePage = () => {
               <motion.div variants={buttonItemVariants} className="w-full">
                 <Button
                   onClick={() =>
-                    window.open("https://calendly.com/sarkarnafe", "_blank")
+                    window.open("https://calendly.com/ioannis-mesionis", "_blank")
                   }
                   className="w-full"
                 >
@@ -217,40 +216,40 @@ const HomePage = () => {
               animate="visible" // Trigger animation on load
             >
               <motion.a
-                href="https://github.com/Nafisarkar"
+                href="https://github.com/ioannis-mesionis"
                 className="hover:transform hover:scale-110 transition-all"
                 variants={iconItemVariants}
               >
                 <FaGithub className="h-6 w-6  transition-colors" />
               </motion.a>
               <motion.a
-                href="https://www.linkedin.com/in/nafi-sarkar/"
+                href="https://www.linkedin.com/in/ioannis-mesionis"
                 className="hover:transform hover:scale-110 transition-all"
                 variants={iconItemVariants}
               >
                 <FaLinkedin className="h-6 w-6 transition-colors" />
               </motion.a>
               <motion.a
-                href="https://discord.com/users/_sakuno"
+                href="mailto:ioannis.mesionis@example.com"
                 className="hover:transform hover:scale-110 transition-all"
                 variants={iconItemVariants}
               >
                 <FaDiscord className="h-6 w-6  transition-colors" />
               </motion.a>
               <motion.a
-                href="https://www.instagram.com/_blindfox_/"
+                href="https://www.instagram.com/ioannis.mesionis"
                 className="hover:transform hover:scale-110 transition-all"
                 variants={iconItemVariants}
               >
                 <PiInstagramLogoFill className="h-6 w-6  transition-colors" />
               </motion.a>
               <motion.a
-                href="https://wakatime.com/@Nafisarkar"
+                href="https://kaggle.com/ioannismesionis"
                 target="_blank"
                 className="hover:transform hover:scale-110 transition-all"
                 variants={iconItemVariants}
               >
-                <SiDreamstime className="h-6 w-6 transition-colors" />
+                <SiKaggle className="h-6 w-6 transition-colors" />
               </motion.a>
             </motion.div>
           </div>
@@ -267,17 +266,16 @@ const HomePage = () => {
             About Me
           </motion.h2>
           <motion.div
-            className="space-y-4 font-PublicSans text-gray-500 "
+            className="space-y-4 font-PublicSans text-foreground/70 "
             variants={aboutMeContainerVariants}
             initial="hidden"
             animate="visible" // Or use whileInView="visible" and viewport={{ once: true, amount: 0.2 }}
           >
             <motion.p variants={paragraphItemVariants} className="text-justify">
-              I'm a computer science student passionate about creating seamless,
-              user-friendly experiences through thoughtful design and efficient
-              code. I love working at the intersection of frontend and backend
-              development, ensuring that applications are not only aesthetically
-              pleasing but also robust and scalable.
+              I'm a Senior AI/ML Data Scientist at King, passionate about leveraging
+              artificial intelligence and machine learning to enhance mobile gaming
+              experiences. With a strong mathematical background and 6+ years in data
+              science, I specialize in recommendation systems and predictive modeling.
             </motion.p>
             <motion.p variants={paragraphItemVariants} className="text-justify">
               {/* Currently, I'm focused on expanding my skills in web development,
@@ -287,12 +285,10 @@ const HomePage = () => {
               frameworks. I enjoy tackling complex problems and finding elegant
               solutions that prioritize user experience while maintaining code
               quality. */}
-              Currently, I'm focused on growing my web development skills, with
-              a strong interest in React and Node.js. Through coursework and
-              personal projects, I've gained experience in UI/UX design,
-              responsive layouts, and modern JavaScript frameworks. I enjoy
-              solving complex problems with elegant, user-focused solutions that
-              maintain high code quality.
+              Currently pursuing an Executive MBA while leading AI/ML initiatives
+              in the gaming industry. I focus on developing sophisticated algorithms
+              for user engagement prediction, implementing robust MLOps practices,
+              and creating data-driven solutions that directly impact millions of users.
             </motion.p>
             <motion.p variants={paragraphItemVariants} className="text-justify">
               {/* When I'm not coding, you'll find me exploring new technologies, or
@@ -300,9 +296,9 @@ const HomePage = () => {
               enjoy photography in my free time, playing video games, reading
               books, and occasionally traveling. I'm always looking for opportunities to
               collaborate on projects that can make a positive impact. */}
-              Outside of coding, I enjoy exploring new tech, learning online,
-              photography, gaming, reading, and occasional travel. I'm always
-              open to impactful collaborations.
+              Outside of work, I enjoy exploring the latest AI research, working on
+              personal data science projects, and traveling. With multilingual abilities
+              in Greek, English, and Spanish, I bring a global perspective to AI/ML solutions.
             </motion.p>
           </motion.div>
         </div>

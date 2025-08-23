@@ -6,7 +6,7 @@ import { FaCodeBranch } from "react-icons/fa6";
 import { PiGithubLogoFill } from "react-icons/pi";
 
 const Footer = () => {
-  const [year, setYear] = useState(new Date().getFullYear());
+  const [year] = useState(new Date().getFullYear());
   const [repoDetails, setRepoDetails] = useState({
     repocount: 0,
     gitfollowers: 0,

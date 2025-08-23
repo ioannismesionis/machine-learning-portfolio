@@ -1,7 +1,7 @@
 import ProjectCard from "@/components/ui/ProjectCard";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { fetchProjects } from "@/redux/projectSlice";
 
 const ProjectPage = () => {
