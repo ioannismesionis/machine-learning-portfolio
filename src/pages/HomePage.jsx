@@ -295,7 +295,7 @@ const HomePage = () => {
             animate="visible" // Or use whileInView="visible" and viewport={{ once: true, amount: 0.2 }}
           >
             <motion.p variants={paragraphItemVariants} className="text-justify">
-              I'm a Senior AI/ML Engineer at King, passionate about leveraging
+              I'm a Senior AI/ML Engineer at King (part of Xbox and Microsoft Gaming Studios), passionate about leveraging
               artificial intelligence and machine learning to enhance mobile gaming
               experiences. With a strong mathematical background and 6+ years in data
               science, I specialize in recommendation systems and predictive modeling.
