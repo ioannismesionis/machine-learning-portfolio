@@ -208,33 +208,46 @@ const HomePage = () => {
                     const subject = "Portfolio Contact";
                     const body = "Hi Ioannis,\n\nI found your portfolio and would like to get in touch.\n\nBest regards,";
                     
-                    // Create mailto URL with proper encoding
-                    const mailtoURL = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                    // Show a user-friendly dialog with options
+                    const userChoice = confirm(
+                      `Choose how you'd like to contact Ioannis:\n\n` +
+                      `✉️ Click OK to copy email address to clipboard\n` +
+                      `📧 Click Cancel to try opening your email client\n\n` +
+                      `Email: ${email}`
+                    );
                     
-                    // Create a temporary anchor element to trigger mailto
-                    const tempLink = document.createElement('a');
-                    tempLink.href = mailtoURL;
-                    tempLink.style.display = 'none';
-                    document.body.appendChild(tempLink);
-                    
-                    try {
-                      tempLink.click();
-                    } catch (error) {
-                      // Fallback: try direct window.location
+                    if (userChoice) {
+                      // User chose to copy email to clipboard
+                      navigator.clipboard.writeText(email).then(() => {
+                        alert(`📋 Email address copied to clipboard!\n\n${email}\n\nYou can now paste it into your preferred email client.`);
+                      }).catch(() => {
+                        // Fallback if clipboard doesn't work
+                        const textarea = document.createElement('textarea');
+                        textarea.value = email;
+                        document.body.appendChild(textarea);
+                        textarea.select();
+                        try {
+                          document.execCommand('copy');
+                          alert(`📋 Email address copied!\n\n${email}`);
+                        } catch (err) {
+                          alert(`Email address: ${email}\n\nPlease copy this manually.`);
+                        }
+                        document.body.removeChild(textarea);
+                      });
+                    } else {
+                      // User chose to try email client
+                      const mailtoURL = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                      
                       try {
-                        window.location.href = mailtoURL;
-                      } catch (secondError) {
-                        // Final fallback: copy email and show instruction
+                        window.open(mailtoURL, '_self');
+                      } catch (error) {
+                        // If opening email client fails, fallback to clipboard
                         navigator.clipboard.writeText(email).then(() => {
-                          alert(`Email client not available. Email address copied to clipboard: ${email}`);
+                          alert(`⚠️ Couldn't open email client.\n\nEmail address copied to clipboard: ${email}`);
                         }).catch(() => {
-                          // If clipboard fails too, show email in alert
-                          alert(`Please send an email to: ${email}`);
+                          alert(`⚠️ Couldn't open email client.\n\nPlease email: ${email}`);
                         });
                       }
-                    } finally {
-                      // Clean up the temporary element
-                      document.body.removeChild(tempLink);
                     }
                   }}
                   className="w-full"
