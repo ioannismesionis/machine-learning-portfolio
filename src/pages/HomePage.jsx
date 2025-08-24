@@ -204,9 +204,16 @@ const HomePage = () => {
             >
               <motion.div variants={buttonItemVariants} className="w-full">
                 <Button
-                  onClick={() =>
-                    window.location.href = "mailto:ioannis.mesionis@gmail.com"
-                  }
+                  onClick={() => {
+                    try {
+                      window.location.assign("mailto:ioannis.mesionis@gmail.com?subject=Portfolio Contact&body=Hi Ioannis,%0D%0A%0D%0AI found your portfolio and would like to get in touch.%0D%0A%0D%0ABest regards,");
+                    } catch (error) {
+                      // Fallback: copy email to clipboard and show alert
+                      navigator.clipboard.writeText("ioannis.mesionis@gmail.com").then(() => {
+                        alert("Email copied to clipboard: ioannis.mesionis@gmail.com");
+                      });
+                    }
+                  }}
                   className="w-full"
                 >
                   Contact Me <FaArrowRightLong className="ml-2" />

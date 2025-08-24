@@ -1,14 +1,14 @@
-# Machine Learning Portfolio
+# Ioannis Mesionis - Machine Learning Portfolio
 
 <p align="center">
   <img src="./public/demo.webp" alt="Machine Learning Portfolio Banner" />
 </p>
 
-A modern, responsive portfolio website built with React and Vite, showcasing the professional journey of a Machine Learning & Data Scientist. Features a beautiful neobrutalism design with smooth animations and a distinctive yellow color scheme.
+A modern, responsive portfolio website built with React and Vite, showcasing the professional journey of Ioannis Mesionis, Senior AI/ML Engineer at King (Microsoft Gaming Studios). Features a beautiful neobrutalism design with smooth animations and a distinctive yellow color scheme.
 
 ## 🚀 Live Demo
 
-Visit the live portfolio: [Your Portfolio URL]
+Visit the live portfolio: [https://ioannismesionis-mle.vercel.app](https://ioannismesionis-mle.vercel.app)
 
 ## 🌟 Features
 
@@ -84,7 +84,9 @@ machine-learning-portfolio/
 ├── src/
 │   ├── assets/                  # Static assets
 │   │   ├── favicon.png          # Site favicon
-│   │   └── pf.svg              # Profile image
+│   │   ├── me.JPG              # Personal profile photo
+│   │   ├── pf.svg              # Legacy profile image
+│   │   └── profileImage.svg    # Legacy profile SVG
 │   ├── components/
 │   │   └── ui/                  # Reusable UI components
 │   │       ├── Navbar.jsx       # Navigation component
@@ -155,7 +157,7 @@ machine-learning-portfolio/
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/ioannis-mesionis/machine-learning-portfolio.git
+   git clone https://github.com/ioannismesionis/machine-learning-portfolio.git
    cd machine-learning-portfolio
    ```
 
@@ -348,11 +350,11 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 👤 Author
 
-**Ioannis Mesionis**
-- Portfolio: [Your Portfolio URL]
+**Ioannis Mesionis** - Senior AI/ML Engineer
+- Portfolio: [https://ioannismesionis-mle.vercel.app](https://ioannismesionis-mle.vercel.app)
 - LinkedIn: [https://www.linkedin.com/in/ioannis-mesionis/](https://www.linkedin.com/in/ioannis-mesionis/)
-- GitHub: [https://github.com/ioannis-mesionis](https://github.com/ioannis-mesionis)
-- Email: ioannis.mesionis@example.com
+- GitHub: [https://github.com/ioannismesionis](https://github.com/ioannismesionis)
+- Email: ioannis.mesionis@gmail.com
 
 ## 🙏 Acknowledgments
 
