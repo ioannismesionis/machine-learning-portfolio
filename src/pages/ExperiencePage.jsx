@@ -7,22 +7,62 @@ const ExperiencePage = () => {
   const experiences = [
     {
       type: "work",
-      title: "Senior AI/ML Data Scientist",
-      company: "King",
+      title: "Senior AI/ML Engineer",
+      company: "King (Microsoft Gaming Studios)",
       location: "London, United Kingdom",
-      period: "Present",
-      description: "Leading AI/ML initiatives for mobile gaming platform. Developing recommendation systems, predictive models for user engagement, and implementing MLOps practices for large-scale deployment.",
-      skills: ["Python", "Machine Learning", "Recommender Systems", "Predictive Modeling", "MLOps"],
+      period: "May 2024 - Present",
+      description: "Led development of VertexAI deep learning models for LTV prediction in Candy Crush. Built personalized difficulty adjustment system driving measurable engagement and revenue uplifts through A/B testing.",
+      skills: ["VertexAI", "Deep Learning", "LightGBM", "LTV Prediction", "A/B Testing", "Expected Value Framework", "Personalisation"],
+      icon: FaBriefcase
+    },
+    {
+      type: "work",
+      title: "Lead Data Scientist",
+      company: "EasyJet",
+      location: "Luton, United Kingdom",
+      period: "Oct 2021 - May 2024",
+      description: "Delivered £20M+ incremental revenue through cross-functional team leadership. Pioneered MLOps capability and created product roadmap with £7M+ forecasted annual revenue.",
+      skills: ["Team Leadership", "MLOps", "Cross-functional Collaboration", "Product Roadmap", "Innovation Management"],
+      icon: FaBriefcase
+    },
+    {
+      type: "work",
+      title: "Senior Data Scientist",
+      company: "EasyJet",
+      location: "Luton, United Kingdom",
+      period: "Aug 2020 - Oct 2021",
+      description: "Generated £3.7M revenue during COVID-19 through end-to-end ML projects. Established ML engineering best practices including CI/CD and monitoring systems.",
+      skills: ["Technical Leadership", "ML Engineering", "CI/CD", "Test-driven Development", "Post-deployment Monitoring"],
       icon: FaBriefcase
     },
     {
       type: "work",
       title: "Data Scientist",
       company: "EasyJet",
+      location: "Luton, United Kingdom",
+      period: "Apr 2019 - Aug 2020",
+      description: "Built survival analysis models for customer lifetime prediction and automated web-scraping systems for flight delay analysis using Python.",
+      skills: ["Survival Analysis", "Customer Retention", "Web Scraping", "BeautifulSoup", "Selenium", "Python"],
+      icon: FaBriefcase
+    },
+    {
+      type: "work",
+      title: "Data Scientist Consultant",
+      company: "Profusion Ltd",
       location: "London, United Kingdom",
-      period: "2018 - Present",
-      description: "Developed data science solutions for airline operations including demand forecasting, route optimization, and customer analytics. Implemented machine learning models for pricing optimization and operational efficiency improvements.",
-      skills: ["Python", "Data Analysis", "Forecasting", "Optimization", "SQL", "Business Intelligence"],
+      period: "Oct 2017 - Sep 2018",
+      description: "Developed impactful data products through university partnership, solving real-world data science challenges for London-based consultancy.",
+      skills: ["Data Science", "Consulting", "Product Development", "Python", "Machine Learning"],
+      icon: FaBriefcase
+    },
+    {
+      type: "work",
+      title: "Research Analyst (Internship)",
+      company: "Children Services",
+      location: "United Kingdom",
+      period: "2018",
+      description: "Created predictive models to identify at-risk children, enabling early intervention by Council social workers through advanced ML techniques in R.",
+      skills: ["Predictive Modeling", "Lasso Regression", "Random Forest", "SVM", "R", "Social Impact", "Child Protection"],
       icon: FaBriefcase
     }
   ];
@@ -30,11 +70,14 @@ const ExperiencePage = () => {
 
 
   const skills = {
-    "Programming": ["Python", "R", "SQL", "JavaScript", "HTML/CSS"],
-    "Data Science": ["Machine Learning", "Statistical Analysis", "Predictive Modeling", "Data Mining"],
-    "Visualization": ["D3.js", "Tableau", "Matplotlib", "Seaborn", "ggplot2"],
-    "Specializations": ["Recommender Systems", "PPC Optimization", "Model Drift Detection", "Customer Segmentation"],
-    "Languages": ["English (Professional)", "Greek (Native)", "Spanish (Elementary)"]
+    "Programming": ["Python", "R", "SQL", "PySpark", "Scala", "Git"],
+    "Machine Learning": ["Regression", "Classification", "Clustering", "XGBoost", "Deep Learning", "NLP", "Computer Vision"],
+    "MLOps & Infrastructure": ["VertexAI", "Docker", "Kubernetes", "CI/CD", "MLFlow", "Prefect", "Model Monitoring", "Data Drift"],
+    "Cloud Platforms": ["GCP", "AWS", "Azure", "Databricks", "BigQuery", "Snowflake"],
+    "Data Engineering": ["Apache Spark", "Kafka", "Airflow", "ETL Pipelines", "Data Warehousing"],
+    "Frameworks & Tools": ["TensorFlow", "PyTorch", "Scikit-learn", "Pandas", "NumPy", "Jupyter", "Git/GitHub"],
+    "Specializations": ["Recommender Systems", "A/B Testing", "Survival Analysis", "Time Series", "Personalization", "LTV Prediction"],
+    "Leadership & Business": ["Team Leadership", "Cross-functional Collaboration", "Stakeholder Management", "Product Strategy", "Agile/Scrum"]
   };
 
   const containerVariants = {
@@ -93,7 +136,7 @@ const ExperiencePage = () => {
                 </div>
 
                 {/* Content Card */}
-                <div className={`w-5/12 ${index % 2 === 0 ? 'text-right pr-8' : 'text-left pl-8'}`}>
+                <div className={`w-5/12 ${index % 2 === 0 ? 'text-left pr-8' : 'text-left pl-8'}`}>
                   <div className="bg-secondary-background border-2 border-border rounded-base p-6 shadow-shadow hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all">
                     <div className="flex items-center gap-2 mb-2">
                       <span className="text-sm text-main font-semibold">{exp.period}</span>

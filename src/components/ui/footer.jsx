@@ -17,7 +17,7 @@ const Footer = () => {
     const fetchRepoDetails = async () => {
       try {
         const { data } = await axios.get(
-          "https://api.github.com/users/Nafisarkar"
+          "https://api.github.com/users/ioannismesionis"
         );
         setRepoDetails({
           repocount: data.public_repos,
@@ -59,7 +59,7 @@ const Footer = () => {
               </a>
             </div>
             <div className="font-RobotoMono text-xs mt-2 md:mt-0">
-              &copy; {year} Shaon An Nafi
+              &copy; {year} Ioannis Mesionis
             </div>
           </div>
           <div className="flex flex-row justify-center items-center gap-4 mb-2 md:mb-0 ">

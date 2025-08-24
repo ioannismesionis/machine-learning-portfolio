@@ -1,3 +1,4 @@
 {
+  "name": "ioannismesionis-mle",
   "rewrites": [{ "source": "/(.*)", "destination": "/" }]
 }

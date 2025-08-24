@@ -1,10 +1,10 @@
 import { Button } from "@/components/ui/button";
-import profileImage from "../assets/pf.svg";
+import profileImage from "../assets/me.JPG";
 import React from "react";
-import { FaArrowRightLong, FaDiscord, FaInstagram } from "react-icons/fa6";
+import { FaArrowRightLong, FaTiktok, FaInstagram } from "react-icons/fa6";
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa6";
-import { SiKaggle, SiPython, SiTensorflow, SiPytorch } from "react-icons/si";
+import { SiKaggle, SiPython, SiTensorflow, SiDocker, SiGooglecloud } from "react-icons/si";
 import { AnimatePresence, motion } from "motion/react";
 import { PiInstagramLogoFill } from "react-icons/pi";
 import { SiJupyter } from "react-icons/si";
@@ -119,7 +119,8 @@ const HomePage = () => {
                 <img
                   src={profileImage}
                   alt="Profile"
-                  className="h-full w-full bg-main-foreground rounded-full object-cover transform transition-all duration-500 ease-in-out scale-155"
+                  className="h-full w-full bg-main-foreground rounded-full object-cover transform transition-all duration-500 ease-in-out scale-100 translate-y-0"
+                  style={{objectPosition: 'center 12%'}}
                 />
               </div>
 
@@ -139,12 +140,27 @@ const HomePage = () => {
                   ease: "easeInOut",
                 }}
               >
-                <SiPytorch size={28} />
+                <SiGooglecloud size={28} />
               </motion.div>
 
               <div className="absolute bottom-8 right-2 animate-float z-20 text-border">
                 <SiTensorflow size={28} />
               </div>
+
+              <motion.div
+                className="absolute top-4 right-8 z-20 text-border"
+                animate={{
+                  y: [0, -15, 0],
+                  x: [0, 3, -3, 0],
+                }}
+                transition={{
+                  repeat: Infinity,
+                  duration: 3.5,
+                  ease: "easeInOut",
+                }}
+              >
+                <SiDocker size={28} />
+              </motion.div>
             </div>
           </motion.div>
 
@@ -168,7 +184,7 @@ const HomePage = () => {
                 variants={paragraphItemVariants}
                 className="font-bold text-lg sm:text-xl text-center md:text-left mt-4"
               >
-                Senior AI/ML Data Scientist
+                Senior AI/ML Engineer
               </motion.h2>
               <motion.p
                 variants={paragraphItemVariants}
@@ -189,7 +205,7 @@ const HomePage = () => {
               <motion.div variants={buttonItemVariants} className="w-full">
                 <Button
                   onClick={() =>
-                    window.open("mailto:ioannis.mesionis@example.com", "_blank")
+                    window.location.href = "mailto:ioannis.mesionis@gmail.com"
                   }
                   className="w-full"
                 >
@@ -199,7 +215,7 @@ const HomePage = () => {
               <motion.div variants={buttonItemVariants} className="w-full">
                 <Button
                   onClick={() =>
-                    window.open("https://calendly.com/ioannis-mesionis", "_blank")
+                    window.open("https://calendly.com/ioannis-mesionis/30min", "_blank")
                   }
                   className="w-full"
                 >
@@ -216,35 +232,35 @@ const HomePage = () => {
               animate="visible" // Trigger animation on load
             >
               <motion.a
-                href="https://github.com/ioannis-mesionis"
+                href="https://github.com/ioannismesionis"
                 className="hover:transform hover:scale-110 transition-all"
                 variants={iconItemVariants}
               >
                 <FaGithub className="h-6 w-6  transition-colors" />
               </motion.a>
               <motion.a
-                href="https://www.linkedin.com/in/ioannis-mesionis"
+                href="https://www.linkedin.com/in/ioannis-mesionis/"
                 className="hover:transform hover:scale-110 transition-all"
                 variants={iconItemVariants}
               >
                 <FaLinkedin className="h-6 w-6 transition-colors" />
               </motion.a>
               <motion.a
-                href="mailto:ioannis.mesionis@example.com"
+                href="https://www.tiktok.com/@atawuamessi"
                 className="hover:transform hover:scale-110 transition-all"
                 variants={iconItemVariants}
               >
-                <FaDiscord className="h-6 w-6  transition-colors" />
+                <FaTiktok className="h-6 w-6  transition-colors" />
               </motion.a>
               <motion.a
-                href="https://www.instagram.com/ioannis.mesionis"
+                href="https://www.instagram.com/atawua/"
                 className="hover:transform hover:scale-110 transition-all"
                 variants={iconItemVariants}
               >
                 <PiInstagramLogoFill className="h-6 w-6  transition-colors" />
               </motion.a>
               <motion.a
-                href="https://kaggle.com/ioannismesionis"
+                href="https://www.kaggle.com/ioannismesionis"
                 target="_blank"
                 className="hover:transform hover:scale-110 transition-all"
                 variants={iconItemVariants}
@@ -272,7 +288,7 @@ const HomePage = () => {
             animate="visible" // Or use whileInView="visible" and viewport={{ once: true, amount: 0.2 }}
           >
             <motion.p variants={paragraphItemVariants} className="text-justify">
-              I'm a Senior AI/ML Data Scientist at King, passionate about leveraging
+              I'm a Senior AI/ML Engineer at King, passionate about leveraging
               artificial intelligence and machine learning to enhance mobile gaming
               experiences. With a strong mathematical background and 6+ years in data
               science, I specialize in recommendation systems and predictive modeling.
@@ -297,8 +313,8 @@ const HomePage = () => {
               books, and occasionally traveling. I'm always looking for opportunities to
               collaborate on projects that can make a positive impact. */}
               Outside of work, I enjoy exploring the latest AI research, working on
-              personal data science projects, and traveling. With multilingual abilities
-              in Greek, English, and Spanish, I bring a global perspective to AI/ML solutions.
+              personal data science projects, and traveling. Having collaborated with
+              diverse, multicultural teams throughout my career, I bring a global perspective to AI/ML solutions.
             </motion.p>
           </motion.div>
         </div>
@@ -314,11 +330,35 @@ const HomePage = () => {
             Skills
           </motion.h2>
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4"
             variants={aboutMeContainerVariants}
             initial="hidden"
             animate="visible"
           >
+            <motion.div
+              variants={paragraphItemVariants}
+              className="bg-secondary-background border-2 border-border rounded-base p-4 shadow-shadow hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all"
+            >
+              <h3 className="font-bold text-lg mb-3 text-main">Specializations</h3>
+              <div className="space-y-2">
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-main rounded-full"></div>
+                  <span className="text-foreground/80 text-sm">Recommender Systems</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-main rounded-full"></div>
+                  <span className="text-foreground/80 text-sm">Predictive Modelling</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-main rounded-full"></div>
+                  <span className="text-foreground/80 text-sm">A/B Testing</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-main rounded-full"></div>
+                  <span className="text-foreground/80 text-sm">Multi-arm Bandits</span>
+                </div>
+              </div>
+            </motion.div>
             <motion.div
               variants={paragraphItemVariants}
               className="bg-secondary-background border-2 border-border rounded-base p-4 shadow-shadow hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all"
@@ -339,7 +379,7 @@ const HomePage = () => {
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-main rounded-full"></div>
-                  <span className="text-foreground/80 text-sm">JavaScript</span>
+                  <span className="text-foreground/80 text-sm">PySpark</span>
                 </div>
               </div>
             </motion.div>
@@ -348,23 +388,23 @@ const HomePage = () => {
               variants={paragraphItemVariants}
               className="bg-secondary-background border-2 border-border rounded-base p-4 shadow-shadow hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all"
             >
-              <h3 className="font-bold text-lg mb-3 text-main">Data Science</h3>
+              <h3 className="font-bold text-lg mb-3 text-main">Machine Learning</h3>
               <div className="space-y-2">
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-main rounded-full"></div>
-                  <span className="text-foreground/80 text-sm">Machine Learning</span>
+                  <span className="text-foreground/80 text-sm">Deep Learning</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-main rounded-full"></div>
-                  <span className="text-foreground/80 text-sm">Statistical Analysis</span>
+                  <span className="text-foreground/80 text-sm">XGBoost</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-main rounded-full"></div>
-                  <span className="text-foreground/80 text-sm">Predictive Modeling</span>
+                  <span className="text-foreground/80 text-sm">Classification</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-main rounded-full"></div>
-                  <span className="text-foreground/80 text-sm">Data Mining</span>
+                  <span className="text-foreground/80 text-sm">Regression</span>
                 </div>
               </div>
             </motion.div>
@@ -373,23 +413,23 @@ const HomePage = () => {
               variants={paragraphItemVariants}
               className="bg-secondary-background border-2 border-border rounded-base p-4 shadow-shadow hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all"
             >
-              <h3 className="font-bold text-lg mb-3 text-main">Specializations</h3>
+              <h3 className="font-bold text-lg mb-3 text-main">MLOps & Cloud</h3>
               <div className="space-y-2">
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-main rounded-full"></div>
-                  <span className="text-foreground/80 text-sm">Recommender Systems</span>
+                  <span className="text-foreground/80 text-sm">VertexAI</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-main rounded-full"></div>
-                  <span className="text-foreground/80 text-sm">MLOps</span>
+                  <span className="text-foreground/80 text-sm">Docker</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-main rounded-full"></div>
-                  <span className="text-foreground/80 text-sm">Customer Segmentation</span>
+                  <span className="text-foreground/80 text-sm">Google Cloud Platform</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-main rounded-full"></div>
-                  <span className="text-foreground/80 text-sm">Model Optimization</span>
+                  <span className="text-foreground/80 text-sm">CI/CD</span>
                 </div>
               </div>
             </motion.div>
