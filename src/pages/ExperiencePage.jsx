@@ -11,7 +11,7 @@ const ExperiencePage = () => {
       company: "King",
       location: "London, UK",
       period: "May 2024 - Present",
-      description: "Led development of VertexAI deep learning models for LTV prediction in Candy Crush. Built personalized difficulty adjustment system driving measurable engagement and revenue uplifts through A/B testing.",
+      description: "Led development of VertexAI deep learning models for LTV prediction in Candy Crush. Built personalised difficulty adjustment system driving measurable engagement and revenue uplifts through A/B testing.",
       skills: ["VertexAI", "Deep Learning", "LightGBM", "Shap Values", "Personalisation"],
       icon: FaBriefcase
     },
@@ -76,7 +76,7 @@ const ExperiencePage = () => {
     "Cloud Platforms": ["GCP", "AWS", "Azure", "Databricks", "BigQuery", "Snowflake"],
     "Data Engineering": ["Apache Spark", "Kafka", "Airflow", "ETL Pipelines", "Data Warehousing"],
     "Frameworks & Tools": ["TensorFlow", "PyTorch", "Scikit-learn", "Pandas", "NumPy", "Jupyter", "Git/GitHub"],
-    "Specializations": ["Recommender Systems", "A/B Testing", "Survival Analysis", "Time Series", "Personalization", "LTV Prediction"],
+    "Specialisations": ["Recommender Systems", "A/B Testing", "Survival Analysis", "Time Series", "Personalisation", "LTV Prediction"],
     "Leadership & Business": ["Team Leadership", "Cross-functional Collaboration", "Stakeholder Management", "Product Strategy", "Agile/Scrum"]
   };
 

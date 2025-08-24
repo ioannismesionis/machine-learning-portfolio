@@ -198,7 +198,7 @@ const HomePage = () => {
                 variants={paragraphItemVariants}
                 className="text-center md:text-left font-PublicSans max-w-md mt-4"
               >
-              I’m a Senior AI/ML Engineer with a strong background in mathematics and over six years of experience in data science using machine learning to drive personalization, optimize decision-making, and deliver measurable business impact.
+              I'm a Senior AI/ML Engineer with a strong background in mathematics and over six years of experience in Data Science using Machine Learning to drive personalisation, optimise decision-making, and deliver measurable business impact.
               </motion.p>
             </motion.div>
 
@@ -294,8 +294,8 @@ const HomePage = () => {
           >
             <motion.p variants={paragraphItemVariants} className="text-justify">
             I’m a Senior AI/ML Engineer at King, part of Xbox and Microsoft Gaming Studios, building data-driven solutions that enhance mobile gaming experiences for millions of players worldwide.
-            With a strong foundation in mathematics and over six years of experience in data science, I specialize in recommender systems, predictive modeling, and deploying machine learning at scale. 
-            My passion lies in applying cutting-edge AI techniques to deliver personalization, optimize player engagement, and drive measurable business impact.
+            With a strong foundation in mathematics and over six years of experience in Data Science, I specialise in recommender systems, predictive modelling, and deploying Machine Learning at scale. 
+            My passion lies in applying cutting-edge AI techniques to deliver personalisation, optimise player engagement, and drive measurable business impact.
             </motion.p>
             <motion.p variants={paragraphItemVariants} className="text-justify">
               {/* Currently, I'm focused on expanding my skills in web development,
@@ -305,7 +305,7 @@ const HomePage = () => {
               frameworks. I enjoy tackling complex problems and finding elegant
               solutions that prioritize user experience while maintaining code
               quality. */}
-              Currently pursuing an Executive MBA while leading AI/ML initiatives
+              Currently pursuing an Executive MBA whilst leading AI/ML initiatives
               in the gaming industry. I focus on developing sophisticated algorithms
               for user engagement prediction, implementing robust MLOps practices,
               and creating data-driven solutions that directly impact millions of users.
@@ -343,7 +343,7 @@ const HomePage = () => {
               variants={paragraphItemVariants}
               className="bg-secondary-background border-2 border-border rounded-base p-4 shadow-shadow hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all"
             >
-              <h3 className="font-bold text-lg mb-3 text-main">Specializations</h3>
+              <h3 className="font-bold text-lg mb-3 text-main">Specialisations</h3>
               <div className="space-y-2">
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-main rounded-full"></div>

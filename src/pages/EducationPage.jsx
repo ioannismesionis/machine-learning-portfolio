@@ -17,8 +17,8 @@ const EducationPage = () => {
       institution: "University of Essex",
       location: "Essex, UK",
       period: "2017 - 2018",
-      description: "Advanced studies in computer science and data science, focusing on machine learning applications and statistical modeling.",
-      skills: ["Data Analytics", "Data Science", "Statistical Modeling", "Machine Learning", "Research"]
+      description: "Advanced studies in computer science and data science, focusing on machine learning applications and statistical modelling.",
+      skills: ["Data Analytics", "Data Science", "Statistical Modelling", "Machine Learning", "Research"]
     },
     {
       title: "Bachelor in Mathematics",
@@ -146,7 +146,7 @@ const EducationPage = () => {
               <div className="space-y-2">
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-main rounded-full"></div>
-                  <span className="text-foreground/80 text-sm">Statistical Modeling</span>
+                  <span className="text-foreground/80 text-sm">Statistical Modelling</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-main rounded-full"></div>
