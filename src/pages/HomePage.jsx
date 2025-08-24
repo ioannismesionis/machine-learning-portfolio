@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
+import ContactModal from "@/components/ui/ContactModal";
 import profileImage from "../assets/me.JPG";
-import React from "react";
+import React, { useState } from "react";
 import { FaArrowRightLong, FaTiktok, FaInstagram } from "react-icons/fa6";
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa6";
@@ -10,6 +11,8 @@ import { PiInstagramLogoFill } from "react-icons/pi";
 import { SiJupyter } from "react-icons/si";
 
 const HomePage = () => {
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+  
   const iconsContainerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -100,8 +103,13 @@ const HomePage = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="flex flex-col justify-center items-center max-w-5xl mx-auto">
+    <>
+      <ContactModal 
+        isOpen={isContactModalOpen} 
+        onClose={() => setIsContactModalOpen(false)} 
+      />
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col justify-center items-center max-w-5xl mx-auto">
         {/* Header Section */}
         <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-6">
           {/* Profile Image */}
@@ -203,53 +211,7 @@ const HomePage = () => {
             >
               <motion.div variants={buttonItemVariants} className="w-full">
                 <Button
-                  onClick={() => {
-                    const email = "ioannis.mesionis@gmail.com";
-                    const subject = "Portfolio Contact";
-                    const body = "Hi Ioannis,\n\nI found your portfolio and would like to get in touch.\n\nBest regards,";
-                    
-                    // Show a user-friendly dialog with options
-                    const userChoice = confirm(
-                      `Choose how you'd like to contact Ioannis:\n\n` +
-                      `✉️ Click OK to copy email address to clipboard\n` +
-                      `📧 Click Cancel to try opening your email client\n\n` +
-                      `Email: ${email}`
-                    );
-                    
-                    if (userChoice) {
-                      // User chose to copy email to clipboard
-                      navigator.clipboard.writeText(email).then(() => {
-                        alert(`📋 Email address copied to clipboard!\n\n${email}\n\nYou can now paste it into your preferred email client.`);
-                      }).catch(() => {
-                        // Fallback if clipboard doesn't work
-                        const textarea = document.createElement('textarea');
-                        textarea.value = email;
-                        document.body.appendChild(textarea);
-                        textarea.select();
-                        try {
-                          document.execCommand('copy');
-                          alert(`📋 Email address copied!\n\n${email}`);
-                        } catch (err) {
-                          alert(`Email address: ${email}\n\nPlease copy this manually.`);
-                        }
-                        document.body.removeChild(textarea);
-                      });
-                    } else {
-                      // User chose to try email client
-                      const mailtoURL = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-                      
-                      try {
-                        window.open(mailtoURL, '_self');
-                      } catch (error) {
-                        // If opening email client fails, fallback to clipboard
-                        navigator.clipboard.writeText(email).then(() => {
-                          alert(`⚠️ Couldn't open email client.\n\nEmail address copied to clipboard: ${email}`);
-                        }).catch(() => {
-                          alert(`⚠️ Couldn't open email client.\n\nPlease email: ${email}`);
-                        });
-                      }
-                    }
-                  }}
+                  onClick={() => setIsContactModalOpen(true)}
                   className="w-full"
                 >
                   Contact Me <FaArrowRightLong className="ml-2" />
@@ -478,8 +440,9 @@ const HomePage = () => {
             </motion.div>
           </motion.div>
         </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

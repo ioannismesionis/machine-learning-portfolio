@@ -8,7 +8,7 @@ A modern, responsive portfolio website built with React and Vite, showcasing the
 
 ## 🚀 Live Demo
 
-Visit the live portfolio: [https://ioannismesionis-mle.vercel.app](https://ioannismesionis-mle.vercel.app)
+Visit the live portfolio: [https://ioannismesionis-mle-portfolio.vercel.app](https://ioannismesionis-mle-portfolio.vercel.app/)
 
 ## 🌟 Features
 
