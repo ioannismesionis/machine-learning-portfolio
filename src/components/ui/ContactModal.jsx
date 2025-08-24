@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Button } from './button';
-import { FaTimes, FaEnvelope, FaCopy, FaLinkedin } from 'react-icons/fa';
-import { SiMicrosoftteams } from 'react-icons/si';
+import { FaTimes, FaEnvelope, FaCopy, FaLinkedin, FaVideo } from 'react-icons/fa';
 
 const ContactModal = ({ isOpen, onClose }) => {
   const [copiedField, setCopiedField] = useState(null);
@@ -158,7 +157,7 @@ const ContactModal = ({ isOpen, onClose }) => {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 bg-purple-100 rounded-base border-2 border-border flex items-center justify-center">
-                      <SiMicrosoftteams className="w-4 h-4 text-purple-600" />
+                      <FaVideo className="w-4 h-4 text-purple-600" />
                     </div>
                     <div>
                       <h3 className="font-bold text-sm">Microsoft Teams</h3>
