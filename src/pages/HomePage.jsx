@@ -204,13 +204,37 @@ const HomePage = () => {
               <motion.div variants={buttonItemVariants} className="w-full">
                 <Button
                   onClick={() => {
+                    const email = "ioannis.mesionis@gmail.com";
+                    const subject = "Portfolio Contact";
+                    const body = "Hi Ioannis,\n\nI found your portfolio and would like to get in touch.\n\nBest regards,";
+                    
+                    // Create mailto URL with proper encoding
+                    const mailtoURL = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                    
+                    // Create a temporary anchor element to trigger mailto
+                    const tempLink = document.createElement('a');
+                    tempLink.href = mailtoURL;
+                    tempLink.style.display = 'none';
+                    document.body.appendChild(tempLink);
+                    
                     try {
-                      window.location.assign("mailto:ioannis.mesionis@gmail.com?subject=Portfolio Contact&body=Hi Ioannis,%0D%0A%0D%0AI found your portfolio and would like to get in touch.%0D%0A%0D%0ABest regards,");
+                      tempLink.click();
                     } catch (error) {
-                      // Fallback: copy email to clipboard and show alert
-                      navigator.clipboard.writeText("ioannis.mesionis@gmail.com").then(() => {
-                        alert("Email copied to clipboard: ioannis.mesionis@gmail.com");
-                      });
+                      // Fallback: try direct window.location
+                      try {
+                        window.location.href = mailtoURL;
+                      } catch (secondError) {
+                        // Final fallback: copy email and show instruction
+                        navigator.clipboard.writeText(email).then(() => {
+                          alert(`Email client not available. Email address copied to clipboard: ${email}`);
+                        }).catch(() => {
+                          // If clipboard fails too, show email in alert
+                          alert(`Please send an email to: ${email}`);
+                        });
+                      }
+                    } finally {
+                      // Clean up the temporary element
+                      document.body.removeChild(tempLink);
                     }
                   }}
                   className="w-full"
