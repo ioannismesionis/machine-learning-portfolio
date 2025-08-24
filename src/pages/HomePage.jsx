@@ -190,8 +190,7 @@ const HomePage = () => {
                 variants={paragraphItemVariants}
                 className="text-center md:text-left font-PublicSans max-w-md mt-4"
               >
-                I am passionate about developing AI/ML solutions for mobile gaming,
-                specializing in recommendation systems and predictive modeling.
+              I’m a Senior AI/ML Engineer with a strong background in mathematics and over six years of experience in data science using machine learning to drive personalization, optimize decision-making, and deliver measurable business impact.
               </motion.p>
             </motion.div>
 
@@ -295,10 +294,9 @@ const HomePage = () => {
             animate="visible" // Or use whileInView="visible" and viewport={{ once: true, amount: 0.2 }}
           >
             <motion.p variants={paragraphItemVariants} className="text-justify">
-              I'm a Senior AI/ML Engineer at King (part of Xbox and Microsoft Gaming Studios), passionate about leveraging
-              artificial intelligence and machine learning to enhance mobile gaming
-              experiences. With a strong mathematical background and 6+ years in data
-              science, I specialize in recommendation systems and predictive modeling.
+            I’m a Senior AI/ML Engineer at King, part of Xbox and Microsoft Gaming Studios, building data-driven solutions that enhance mobile gaming experiences for millions of players worldwide.
+            With a strong foundation in mathematics and over six years of experience in data science, I specialize in recommender systems, predictive modeling, and deploying machine learning at scale. 
+            My passion lies in applying cutting-edge AI techniques to deliver personalization, optimize player engagement, and drive measurable business impact.
             </motion.p>
             <motion.p variants={paragraphItemVariants} className="text-justify">
               {/* Currently, I'm focused on expanding my skills in web development,
@@ -320,7 +318,7 @@ const HomePage = () => {
               books, and occasionally traveling. I'm always looking for opportunities to
               collaborate on projects that can make a positive impact. */}
               Outside of work, I enjoy exploring the latest AI research, working on
-              personal data science projects, and traveling. Having collaborated with
+              personal data science projects, and video editing. Having collaborated with
               diverse, multicultural teams throughout my career, I bring a global perspective to AI/ML solutions.
             </motion.p>
           </motion.div>
@@ -397,15 +395,7 @@ const HomePage = () => {
             >
               <h3 className="font-bold text-lg mb-3 text-main">Machine Learning</h3>
               <div className="space-y-2">
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-main rounded-full"></div>
-                  <span className="text-foreground/80 text-sm">Deep Learning</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-main rounded-full"></div>
-                  <span className="text-foreground/80 text-sm">XGBoost</span>
-                </div>
-                <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-main rounded-full"></div>
                   <span className="text-foreground/80 text-sm">Classification</span>
                 </div>
@@ -413,6 +403,15 @@ const HomePage = () => {
                   <div className="w-2 h-2 bg-main rounded-full"></div>
                   <span className="text-foreground/80 text-sm">Regression</span>
                 </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-main rounded-full"></div>
+                  <span className="text-foreground/80 text-sm">Deep Learning</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-main rounded-full"></div>
+                  <span className="text-foreground/80 text-sm">Reinforcement Learning</span>
+                </div>
+                
               </div>
             </motion.div>
 

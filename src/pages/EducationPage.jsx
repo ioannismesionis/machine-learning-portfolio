@@ -17,13 +17,13 @@ const EducationPage = () => {
       institution: "University of Essex",
       location: "Essex, UK",
       period: "2017 - 2018",
-      description: "Advanced studies in computer science and data analytics, focusing on machine learning applications and statistical modeling.",
-      skills: ["Data Analytics", "Statistical Modeling", "Machine Learning", "Research"]
+      description: "Advanced studies in computer science and data science, focusing on machine learning applications and statistical modeling.",
+      skills: ["Data Analytics", "Data Science", "Statistical Modeling", "Machine Learning", "Research"]
     },
     {
       title: "Bachelor in Mathematics",
       institution: "University of Ioannina",
-      location: "Ioannina, Greece",
+      location: "Ioannina, GR",
       period: "2010 - 2015",
       description: "Graduated in top 7.3% of department. Strong foundation in mathematical analysis, statistics, and computational methods that form the basis of modern ML algorithms.",
       skills: ["Mathematics", "Statistics", "Statistical Analysis", "Computational Methods", "Research"]
