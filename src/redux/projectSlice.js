@@ -67,6 +67,14 @@ const staticProjects = [
     techstacks: ["Python", "Bayesian Statistics", "Thompson Sampling", "Multi-Armed Bandits", "Probabilistic Decision Making"],
     link: "https://github.com/ioannismesionis/mab-thompson-sampling",
   },
+  {
+    id: 9,
+    category: "Web Development",
+    title: "Machine Learning Portfolio Website",
+    description: "Modern, responsive portfolio website showcasing professional journey as a Senior AI/ML Engineer. Features neobrutalist design with animated floating ML/AI technology icons, dark/light mode, and comprehensive project showcase.",
+    techstacks: ["React", "Vite", "Tailwind CSS", "Framer Motion", "Redux Toolkit", "Responsive Design"],
+    link: "https://github.com/ioannismesionis/machine-learning-portfolio",
+  },
 ];
 
 // Async thunk to fetch projects
