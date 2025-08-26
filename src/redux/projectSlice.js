@@ -27,6 +27,46 @@ const staticProjects = [
     techstacks: ["Python", "MLOps", "Model Monitoring", "Data Drift", "Performance Tracking"],
     link: "https://github.com/ioannismesionis/model-decay-monitor",
   },
+  {
+    id: 4,
+    category: "Technical Writing",
+    title: "Technical Blog Posts",
+    description: "A comprehensive collection of technical blog posts covering statistics, machine learning, and software engineering topics. Mathematically rigorous content providing clear, practical insights for data scientists and software engineers.",
+    techstacks: ["Markdown", "LaTeX", "Statistics", "Machine Learning", "Technical Writing"],
+    link: "https://github.com/ioannismesionis/blogposts",
+  },
+  {
+    id: 5,
+    category: "Machine Learning",
+    title: "Expected Value Framework",
+    description: "Implementation of the Expected Value framework to maximise business impact of ML models. Moves beyond accuracy-based metrics by aligning model outputs with business objectives and accounting for asymmetric costs of prediction errors.",
+    techstacks: ["Python", "Machine Learning", "Business Optimisation", "Decision Theory", "Scikit-learn"],
+    link: "https://github.com/ioannismesionis/the-expected-value-framework",
+  },
+  {
+    id: 6,
+    category: "Algorithms",
+    title: "LeetCode 30-Day Challenge",
+    description: "Python implementations of algorithm and data structure problems from LeetCode's 30-day challenge. Solutions demonstrate algorithm design patterns, time and space complexity optimisation, and problem-solving approaches for technical interviews.",
+    techstacks: ["Python", "Algorithms", "Data Structures", "Problem Solving", "Interview Preparation"],
+    link: "https://github.com/ioannismesionis/LeetCode",
+  },
+  {
+    id: 7,
+    category: "MLOps",
+    title: "MLOps Zoomcamp Assignment",
+    description: "End-to-end MLOps pipeline for predicting used car prices, showcasing modern machine learning operations practices. Features automated workflow orchestration, experiment tracking, model versioning, and comprehensive monitoring.",
+    techstacks: ["Python", "MLOps", "XGBoost", "MLflow", "Prefect", "Docker", "Evidently AI"],
+    link: "https://github.com/ioannismesionis/mlops-zoomcamp-assignment",
+  },
+  {
+    id: 8,
+    category: "Machine Learning",
+    title: "Multi-Armed Bandits & Thompson Sampling",
+    description: "Comprehensive implementation and analysis of multi-armed bandit algorithms with focus on Thompson Sampling. Explores Bayesian approaches to solving exploration vs. exploitation problems with practical applications in web advertising and recommendation systems.",
+    techstacks: ["Python", "Bayesian Statistics", "Thompson Sampling", "Multi-Armed Bandits", "Probabilistic Decision Making"],
+    link: "https://github.com/ioannismesionis/mab-thompson-sampling",
+  },
 ];
 
 // Async thunk to fetch projects
