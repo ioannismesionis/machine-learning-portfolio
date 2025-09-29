@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import ContactModal from "@/components/ui/ContactModal";
+import TypingEffect from "@/components/ui/TypingEffect";
 import profileImage from "../assets/me.JPG";
 import React, { useState } from "react";
 import { FaArrowRightLong, FaTiktok, FaInstagram } from "react-icons/fa6";
@@ -12,6 +13,15 @@ import { SiJupyter } from "react-icons/si";
 
 const HomePage = () => {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+
+  // Array of titles for the typing effect
+  const titles = [
+    "Senior AI/ML Engineer",
+    "Building Scalable ML Systems",
+    "Delivering Business Impact through AI",
+    "Leading Data-Driven Decision Making",
+    "Guiding Teams through Data Innovation"
+  ];
   
   const iconsContainerVariants = {
     hidden: { opacity: 0 },
@@ -192,7 +202,11 @@ const HomePage = () => {
                 variants={paragraphItemVariants}
                 className="font-bold text-lg sm:text-xl text-center md:text-left mt-4"
               >
-                Senior AI/ML Engineer
+                <TypingEffect
+                  titles={titles}
+                  speed={80}
+                  pauseDuration={1500}
+                />
               </motion.h2>
               <motion.p
                 variants={paragraphItemVariants}
