@@ -4,6 +4,14 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 // Static project data
 const staticProjects = [
   {
+    id: 10,
+    category: "AI Agents",
+    title: "AI Career Advisor Agent",
+    description: "Career coaching agent built with Google's ADK during the Kaggle AI Agent training. Provides tailored career advice and guidance using LLM-powered reasoning and decision support.",
+    techstacks: ["Python", "Google ADK", "AI Agents", "LLMs", "Kaggle"],
+    link: "https://github.com/ioannismesionis/ai-agent",
+  },
+  {
     id: 1,
     category: "Machine Learning",
     title: "Expected Value Framework",
